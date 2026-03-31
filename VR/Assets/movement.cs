@@ -1,4 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        HandleInteraction();
+
         // Player movement
         float moveInputX = Input.GetAxis("Horizontal");
         float moveInputZ = Input.GetAxis("Vertical");
@@ -30,5 +33,19 @@ public class Player : MonoBehaviour
         xRotation -= mouseY; // Move view up when mouse moves up
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Limit the up and down angle
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+    }
+
+    void HandleInteraction()
+    {
+        
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Debug.Log("LeftButton!");
+        }
+
+        if (Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            Debug.Log("RightButton!");
+        }
     }
 }
