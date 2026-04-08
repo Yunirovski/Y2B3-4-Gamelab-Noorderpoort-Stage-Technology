@@ -3,49 +3,89 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public float moveSpeed = 2f;               // How fast the player moves
-    public float mouseSensitivity = 1000f;      // How fast the mouse moves the view
-    public Transform cameraTransform;          // The camera we use
-
-    private float xRotation = 0f;              // The up and down view angle
+    public float moveSpeed = 2f;
+    public float mouseSensitivity = 1000f;
+    public Transform cameraTransform;
+    public float xRotation = 0f;
+    public bool isInLightingConsoleMode = false;
 
     void Start()
-    { }
+    {
+        EnterPlayerMode();
+    }
 
     void Update()
     {
-        HandleInteraction();
+        if (isInLightingConsoleMode)
+        {
+            HandleLightingConsoleMode();
+        }
+        else
+        {
+            HandleMovementAndLook();
+            HandleInteraction();
+        }
+    }
 
-        // Player movement
+    void HandleMovementAndLook()
+    {
         float moveInputX = Input.GetAxis("Horizontal");
         float moveInputZ = Input.GetAxis("Vertical");
+
         Vector3 move = transform.right * moveInputX + transform.forward * moveInputZ;
         transform.position += move * moveSpeed * Time.deltaTime;
 
-        // Get mouse input
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        // Turn player left or right
         transform.Rotate(Vector3.up * mouseX);
 
-        // Look up and down with camera
-        xRotation -= mouseY; // Move view up when mouse moves up
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Limit the up and down angle
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 
     void HandleInteraction()
     {
-        
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
             Debug.Log("LeftButton!");
         }
 
-        if (Mouse.current.rightButton.wasPressedThisFrame)
+        if (Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame)
         {
             Debug.Log("RightButton!");
         }
+    }
+
+    void HandleLightingConsoleMode()
+    {
+        if (Keyboard.current != null &&
+            (Keyboard.current.wKey.wasPressedThisFrame ||
+             Keyboard.current.aKey.wasPressedThisFrame ||
+             Keyboard.current.sKey.wasPressedThisFrame ||
+             Keyboard.current.dKey.wasPressedThisFrame))
+        {
+            ExitLightingConsoleMode();
+        }
+    }
+
+    public void EnterLightingConsoleMode()
+    {
+        isInLightingConsoleMode = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void ExitLightingConsoleMode()
+    {
+        isInLightingConsoleMode = false;
+        EnterPlayerMode();
+    }
+
+    void EnterPlayerMode()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
