@@ -1,39 +1,41 @@
-using UnityEngine;
-using UnityEngine.InputSystem; 
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ESCmenu : MonoBehaviour
 {
     public GameObject menuPanel;
     private bool isPaused = false;
+    private Player playerScript;
 
-    private void Start()
+    void Start()
     {
-        Cursor.visible = false;
+        playerScript = Object.FindAnyObjectByType<Player>();
+        UpdateCursor();
     }
+
     void Update()
     {
-       
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             isPaused = !isPaused;
-
-            // Show or hide the menu
             menuPanel.SetActive(isPaused);
-
-            // Stop or start time
             Time.timeScale = isPaused ? 0f : 1f;
+            UpdateCursor();
+        }
+    }
 
-            // Unlock or lock mouse cursor
-            if (isPaused)
-                {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
+    public void UpdateCursor()
+    {
+        // Show mouse if Paused OR in Lighting Mode
+        if (isPaused || (playerScript != null && playerScript.isInLightingConsoleMode))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 }

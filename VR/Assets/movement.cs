@@ -73,14 +73,13 @@ public class Player : MonoBehaviour
     public void EnterLightingConsoleMode()
     {
         isInLightingConsoleMode = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Object.FindAnyObjectByType<ESCmenu>().UpdateCursor();
     }
 
     public void ExitLightingConsoleMode()
     {
         isInLightingConsoleMode = false;
-        EnterPlayerMode();
+        Object.FindAnyObjectByType<ESCmenu>().UpdateCursor();
     }
 
     void EnterPlayerMode()
