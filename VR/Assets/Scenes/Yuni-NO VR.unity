@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: db1aafb83f513a04a8431184703f8607, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 292df3b590c48574da3c05f930b27583, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 78151f5e58fb9f749bd5225f789faa27, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -1315,7 +1315,7 @@ Light:
   serializedVersion: 12
   m_Type: 0
   m_Color: {r: 0.9245283, g: 0.87195605, b: 0.7355523, a: 1}
-  m_Intensity: 300
+  m_Intensity: 100
   m_Range: 41.3
   m_SpotAngle: 60.34754
   m_InnerSpotAngle: 21.80208
@@ -1377,8 +1377,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463338540}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12785499, y: -0.6863747, z: 0.12446991, w: 0.7050178}
-  m_LocalPosition: {x: 0.21108513, y: 7.8385615, z: 0.20011805}
+  m_LocalRotation: {x: 0.4188763, y: -0.49241167, z: 0.29275718, w: 0.7045329}
+  m_LocalPosition: {x: -5.8561826, y: 7.453265, z: -0.91051143}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1948,7 +1948,7 @@ GameObject:
   - component: {fileID: 659054470}
   - component: {fileID: 659054469}
   m_Layer: 0
-  m_Name: Spot Light baked
+  m_Name: Spot Light realtime for celebrety
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1994,10 +1994,10 @@ Light:
   serializedVersion: 12
   m_Type: 0
   m_Color: {r: 0.91823894, g: 0.7716415, b: 0.39559343, a: 1}
-  m_Intensity: 800
-  m_Range: 22.524635
-  m_SpotAngle: 100.214165
-  m_InnerSpotAngle: 27.49824
+  m_Intensity: 1000
+  m_Range: 50
+  m_SpotAngle: 65.26744
+  m_InnerSpotAngle: 57.67423
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
     m_Type: 1
@@ -2033,7 +2033,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
@@ -2056,8 +2056,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659054468}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.37359336, y: -0.6002107, z: 0.37329546, w: 0.6006877}
-  m_LocalPosition: {x: -19.082775, y: 15.68, z: -0.078603886}
+  m_LocalRotation: {x: 0.14887325, y: -0.68901265, z: 0.14786409, w: 0.69371074}
+  m_LocalPosition: {x: -11.399071, y: 12.7358055, z: -0.010178389}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3923,6 +3923,7 @@ GameObject:
   - component: {fileID: 1289132496}
   - component: {fileID: 1289132495}
   - component: {fileID: 1289132499}
+  - component: {fileID: 1289132500}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -4039,6 +4040,23 @@ MonoBehaviour:
   pointA: {fileID: 2050642371}
   pointB: {fileID: 1131063128}
   sliderValue: 0
+  currentValue: 0
+  maxLightIntensity: 1000
+  targetLight: {fileID: 659054470}
+--- !u!114 &1289132500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289132494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90769f4a00700db47a56f5a3650f77d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SliderLightValue
+  targetLight: {fileID: 659054470}
+  lightValue: 1000
 --- !u!4 &1291469260 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2224261485402360553, guid: 29529d949c965f643befe6cfcd1e372c, type: 3}
