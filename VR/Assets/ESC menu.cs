@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ESCmenu : MonoBehaviour
@@ -6,6 +7,8 @@ public class ESCmenu : MonoBehaviour
     public GameObject menuPanel;
     private bool isPaused = false;
     private Player playerScript;
+    public Player player;
+    public TMP_Text statusText;
 
     void Start()
     {
@@ -21,6 +24,14 @@ public class ESCmenu : MonoBehaviour
             menuPanel.SetActive(isPaused);
             Time.timeScale = isPaused ? 0f : 1f;
             UpdateCursor();
+        }
+
+        {
+            if (player == null || statusText == null) return;
+
+            statusText.text = player.isInLightingConsoleMode
+                ? "Lighting Console Mode: ON"
+                : "Lighting Console Mode: OFF";
         }
     }
 
@@ -38,4 +49,9 @@ public class ESCmenu : MonoBehaviour
             Cursor.visible = false;
         }
     }
+
+
+
+
+
 }
