@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class SliderLightValue : MonoBehaviour
 {
-    public Light targetLight;
-    public float lightValue = 1000f;
+    public Slider3D slider3D;
+    public float lightValue;
 
     void Update()
     {
-        if (targetLight != null)
+        if (slider3D != null)
         {
-            targetLight.intensity = lightValue;
+            lightValue = slider3D.currentValue;
         }
     }
-
 }

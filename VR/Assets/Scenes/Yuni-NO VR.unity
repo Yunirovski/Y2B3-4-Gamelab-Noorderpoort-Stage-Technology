@@ -2510,8 +2510,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659054468}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.39936107, y: -0.58340955, z: 0.39904383, w: 0.58387333}
-  m_LocalPosition: {x: -21.944887, y: 26.65272, z: -0.13978216}
+  m_LocalRotation: {x: 0.3056424, y: -0.62599677, z: 0.29195657, w: 0.6553413}
+  m_LocalPosition: {x: -21.972832, y: 26.669304, z: -0.13686872}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4291,7 +4291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90769f4a00700db47a56f5a3650f77d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SliderLightValue
-  targetLight: {fileID: 659054470}
+  slider3D: {fileID: 0}
   lightValue: 1000
 --- !u!4 &1291469260 stripped
 Transform:
