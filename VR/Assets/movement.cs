@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        SwitchMode();
+
         if (isInLightingConsoleMode)
         {
             HandleLightingConsoleMode();
@@ -67,6 +69,21 @@ public class Player : MonoBehaviour
              Keyboard.current.dKey.wasPressedThisFrame))
         {
             ExitLightingConsoleMode();
+        }
+    }
+
+    void SwitchMode()
+    {
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            if (isInLightingConsoleMode)
+            {
+                ExitLightingConsoleMode();
+            }
+            else
+            {
+                EnterLightingConsoleMode();
+            }
         }
     }
 
