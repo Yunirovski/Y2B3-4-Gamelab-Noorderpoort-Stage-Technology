@@ -2203,8 +2203,8 @@ MonoBehaviour:
   targetLights:
   - {fileID: 1389147587}
   - {fileID: 1407276153}
-  isFlashing: 0
-  flashSpeed: 10
+  isFlashing: 1
+  flashSpeed: 20
   minBright: 0.2
 --- !u!65 &676716560
 BoxCollider:
@@ -4114,7 +4114,7 @@ MonoBehaviour:
   mainCam: {fileID: 350710953}
   pointA: {fileID: 2050642371}
   pointB: {fileID: 1131063128}
-  sliderValue: 0
+  sliderValue: 0.202
   currentValue: 0
   maxLightIntensity: 1000
   targetLight: {fileID: 1389147587}
@@ -4658,8 +4658,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   intensityFromLight: 0
   intensityModeAdvanced: 0
-  intensityInside: 1
-  intensityOutside: 1
+  intensityInside: 0.2
+  intensityOutside: 0.2
   intensityMultiplier: 1
   hdrpExposureWeight: 0
   blendingMode: 0
@@ -4874,8 +4874,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   intensityFromLight: 0
   intensityModeAdvanced: 0
-  intensityInside: 1
-  intensityOutside: 1
+  intensityInside: 0.2
+  intensityOutside: 0.2
   intensityMultiplier: 1
   hdrpExposureWeight: 0
   blendingMode: 0
@@ -5736,8 +5736,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662107701}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4075349, y: -0.59099054, z: 0.46438006, w: 0.5186489}
-  m_LocalPosition: {x: -5.5326223, y: 13.144452, z: -0.7671246}
+  m_LocalRotation: {x: 0.4075349, y: -0.5909906, z: 0.46438003, w: 0.5186489}
+  m_LocalPosition: {x: -5.5326195, y: 13.144455, z: -0.7671251}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8060,8 +8060,8 @@ SceneRoots:
   - {fileID: 1669776009}
   - {fileID: 1736886033}
   - {fileID: 1389147590}
-  - {fileID: 1662107705}
   - {fileID: 1407276156}
+  - {fileID: 1662107705}
   - {fileID: 1684057675}
   - {fileID: 708376039}
   - {fileID: 1444329385}

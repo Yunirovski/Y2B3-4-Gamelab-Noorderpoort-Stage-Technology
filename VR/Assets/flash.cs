@@ -15,6 +15,10 @@ public class LightFlashController : MonoBehaviour
     [Range(0, 1)]
     public float minBright = 0.2f; // How dark it gets
 
+    void OnMouseDown()
+    {
+        isFlashing = !isFlashing; // change state
+    }
     void Update()
     {
         if (linkedSlider == null || targetLights.Count == 0) return;
