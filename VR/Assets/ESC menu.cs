@@ -1,6 +1,8 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ESCmenu : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class ESCmenu : MonoBehaviour
     public Player player;
     public TMP_Text statusText;
 
+    
     void Start()
     {
         playerScript = Object.FindAnyObjectByType<Player>();
@@ -34,8 +37,7 @@ public class ESCmenu : MonoBehaviour
                 : "Lighting Console Mode: OFF";
         }
     }
-
-    public void UpdateCursor()
+          public void UpdateCursor()
     {
         // Show mouse if Paused OR in Lighting Mode
         if (isPaused || (playerScript != null && playerScript.isInLightingConsoleMode))
@@ -49,9 +51,6 @@ public class ESCmenu : MonoBehaviour
             Cursor.visible = false;
         }
     }
-
-
-
-
-
 }
+
+
