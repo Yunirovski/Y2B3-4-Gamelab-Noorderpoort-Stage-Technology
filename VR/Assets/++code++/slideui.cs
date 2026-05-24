@@ -19,11 +19,15 @@ public class PressSpaceSlideUI : MonoBehaviour
         {
             // Up
             uiPanel.anchoredPosition = Vector3.Lerp(uiPanel.anchoredPosition, upPos, Time.deltaTime * speed);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
             // Down
             uiPanel.anchoredPosition = Vector3.Lerp(uiPanel.anchoredPosition, downPos, Time.deltaTime * speed);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }
