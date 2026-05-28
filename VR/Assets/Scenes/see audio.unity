@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioSpectrumVisualizer
   audioSource: {fileID: 1583280814}
   barPrefab: {fileID: 5359923525806376421, guid: 6442bcccd0901294d9d41523efefe0d9, type: 3}
-  barCount: 32
+  barCount: 64
   spacing: 0.6
   minHeight: 0.2
   heightScale: 120
@@ -477,10 +477,11 @@ MonoBehaviour:
   fftWindow: 5
   startSample: 2
   bassBoost: 2
+  Boost: 50
   colorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0.69612426, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}

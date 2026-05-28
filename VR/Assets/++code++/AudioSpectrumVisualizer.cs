@@ -18,6 +18,7 @@ public class AudioSpectrumVisualizer : MonoBehaviour
     public FFTWindow fftWindow = FFTWindow.BlackmanHarris;
     public int startSample = 2;
     public float bassBoost = 2.0f;
+    public float Boost = 50.0f;
 
     [Header("Color")]
     public Gradient colorGradient;
@@ -156,6 +157,10 @@ public class AudioSpectrumVisualizer : MonoBehaviour
             }
 
             float value = sum / Mathf.Max(1, end - start);
+
+            float t = i / (float)(barCount - 1);
+            float boost = Mathf.Lerp(1.0f, Boost, t);
+            value *= boost;
 
             if (i < barCount / 6)
                 value *= bassBoost;
