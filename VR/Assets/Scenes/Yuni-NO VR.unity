@@ -4937,7 +4937,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   useEmission: 1
   emissionStrength: 2
-  playPauseKey: 32
+  playPauseKey: 274
   forwardKey: 275
   backKey: 276
   seekSeconds: 5
