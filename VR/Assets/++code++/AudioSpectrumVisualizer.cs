@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AudioSpectrumVisualizer : MonoBehaviour
 {
@@ -113,9 +113,14 @@ public class AudioSpectrumVisualizer : MonoBehaviour
 
         for (int i = 0; i < barCount; i++)
         {
-            Vector3 pos = new Vector3(i * spacing - width * 0.5f, minHeight * 0.5f, 0f);
-            GameObject bar = Instantiate(barPrefab, pos, Quaternion.identity, transform);
+            // 
+            GameObject bar = Instantiate(barPrefab, transform);
             bar.name = "Bar_" + i;
+
+            // 
+            Vector3 localPos = new Vector3(i * spacing - width * 0.5f, minHeight * 0.5f, 0f);
+            bar.transform.localPosition = localPos;
+            bar.transform.localRotation = Quaternion.identity;
 
             bars[i] = bar.transform;
             bars[i].localScale = new Vector3(0.4f, minHeight, 0.4f);
