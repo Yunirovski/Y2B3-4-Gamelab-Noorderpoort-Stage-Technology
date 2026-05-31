@@ -26,7 +26,7 @@ public class AudioSpectrumVisualizer : MonoBehaviour
     public float emissionStrength = 2.0f;
 
     [Header("Player")]
-    public KeyCode playPauseKey = KeyCode.Space;
+    public KeyCode playPauseKey = KeyCode.DownArrow;
     public KeyCode forwardKey = KeyCode.RightArrow;
     public KeyCode backKey = KeyCode.LeftArrow;
     public float seekSeconds = 5f;
