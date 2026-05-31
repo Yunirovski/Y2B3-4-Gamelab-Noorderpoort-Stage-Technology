@@ -2787,9 +2787,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightFlashController
   linkedSlider: {fileID: 1289132499}
+  flashToggle: {fileID: 1775301628}
   targetLights:
   - {fileID: 1389147587}
-  - {fileID: 1407276153}
   isFlashing: 1
   flashSpeed: 20
   minBright: 0.2
@@ -4513,13 +4513,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9330c868e17358e49b18cfd0b64a515a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Slider3D
-  mainCam: {fileID: 350710953}
-  pointA: {fileID: 2050642371}
-  pointB: {fileID: 1131063128}
+  uiScrollbar: {fileID: 0}
   sliderValue: 0.202
   currentValue: 0
   maxLightIntensity: 1000
-  targetLight: {fileID: 1389147587}
+  targetLight: {fileID: 0}
 --- !u!114 &1289132500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8253,6 +8251,7 @@ GameObject:
   - component: {fileID: 1935147053}
   - component: {fileID: 1935147052}
   - component: {fileID: 1935147051}
+  - component: {fileID: 1935147054}
   m_Layer: 5
   m_Name: Scrollbar
   m_TagString: Untagged
@@ -8367,6 +8366,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935147049}
   m_CullTransparentMesh: 1
+--- !u!114 &1935147054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935147049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9330c868e17358e49b18cfd0b64a515a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Slider3D
+  uiScrollbar: {fileID: 1935147051}
+  sliderValue: 0
+  currentValue: 0
+  maxLightIntensity: 1000
+  targetLight: {fileID: 1407276153}
 --- !u!224 &1938953894 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4941219564456579801, guid: dc067c577ec1b854684d789b6e727cc0, type: 3}
