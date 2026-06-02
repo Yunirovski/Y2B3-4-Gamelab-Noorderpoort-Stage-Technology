@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public class ScoreTrigger
 {
     public float time;           // Start time
-    public float duration = 5f;  // Show for how many seconds
-    public int bonus = 2;        // Score multiplier
+    public float duration = 5f;  // Duration
+    public int bonus = 2;        // Multiplier
     public Sprite bonusSprite;   // UI sprite
     [HideInInspector]
     public bool isDone = false;
@@ -17,8 +18,9 @@ public class GameScoreManager : MonoBehaviour
     [Header("Music")]
     public AudioSource audioSource;
     public Slider progressBar;
-    public TMPro.TextMeshProUGUI scoreText;
-    public TMPro.TextMeshProUGUI bonusText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI bonusText;
+    public TextMeshProUGUI timeText;   // Game time text
 
     [Header("UI")]
     public Image bonusImage;
@@ -59,8 +61,14 @@ public class GameScoreManager : MonoBehaviour
                 bonusImage.enabled = false;
         }
 
-        if (scoreText != null) scoreText.text = currentScore.ToString();
-        if (bonusText != null) bonusText.text = currentBonus.ToString();
+        if (scoreText != null)
+            scoreText.text = "Score: " + currentScore;
+
+        if (bonusText != null)
+            bonusText.text = "Bonus: x" + currentBonus;
+
+        if (timeText != null)
+            timeText.text = "Time: " + time.ToString("F1") + "s";
     }
 
     void ActivateEvent(ScoreTrigger trigger)
