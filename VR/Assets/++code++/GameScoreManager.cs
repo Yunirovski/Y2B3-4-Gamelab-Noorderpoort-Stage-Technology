@@ -4,13 +4,10 @@ using UnityEngine.UI;
 [System.Serializable]
 public class ScoreTrigger
 {
-    // The time to start the event.
-    public float time;
-
-    // The score bonus.
-    public int bonus = 2;
-
-    // Is the event done?
+    public float time;           // Start time
+    public float duration = 5f;  // Show for how many seconds
+    public int bonus = 2;        // Score multiplier
+    public Sprite bonusSprite;   // UI sprite
     [HideInInspector]
     public bool isDone = false;
 }
@@ -23,6 +20,9 @@ public class GameScoreManager : MonoBehaviour
     public TMPro.TextMeshProUGUI scoreText;
     public TMPro.TextMeshProUGUI bonusText;
 
+    [Header("UI")]
+    public Image bonusImage;
+
     [Header("Events")]
     public ScoreTrigger[] triggers;
 
@@ -30,61 +30,65 @@ public class GameScoreManager : MonoBehaviour
     public int currentScore = 0;
     public int currentBonus = 1;
 
+    private float bonusEndTime = -1f;
+
     void Update()
     {
-        if (audioSource == null) return;
-        if (audioSource.clip == null) return;
+        if (audioSource == null || audioSource.clip == null) return;
 
         float time = audioSource.time;
 
-        // Update the progress bar.
         if (progressBar != null)
-        {
             progressBar.value = time / audioSource.clip.length;
-        }
 
-        // Check all events.
         foreach (var trigger in triggers)
         {
             if (time >= trigger.time && !trigger.isDone)
             {
                 trigger.isDone = true;
-                ActivateEvent(trigger.bonus);
+                ActivateEvent(trigger);
             }
         }
 
-        // Show the score on the screen.
-        if (scoreText != null)
+        if (bonusEndTime > 0f && time >= bonusEndTime)
         {
-            scoreText.text = currentScore.ToString();
+            currentBonus = 1;
+            bonusEndTime = -1f;
+
+            if (bonusImage != null)
+                bonusImage.enabled = false;
         }
 
-        if (bonusText != null)
-        {
-            bonusText.text = currentBonus.ToString();
-        }
+        if (scoreText != null) scoreText.text = currentScore.ToString();
+        if (bonusText != null) bonusText.text = currentBonus.ToString();
     }
 
-
-    void ActivateEvent(int newBonus)
+    void ActivateEvent(ScoreTrigger trigger)
     {
-        currentBonus = newBonus;
-        Debug.Log("Bonus is now: " + newBonus);
+        currentBonus = trigger.bonus;
+        bonusEndTime = trigger.time + trigger.duration;
 
-        // Add effects here.
+        if (bonusImage != null && trigger.bonusSprite != null)
+        {
+            bonusImage.sprite = trigger.bonusSprite;
+            bonusImage.enabled = true;
+        }
     }
 
     public void ResetEvents()
     {
         float time = audioSource.time;
 
-        // Reset future events.
         foreach (var trigger in triggers)
         {
             if (trigger.time > time)
-            {
                 trigger.isDone = false;
-            }
         }
+
+        currentBonus = 1;
+        bonusEndTime = -1f;
+
+        if (bonusImage != null)
+            bonusImage.enabled = false;
     }
 }
