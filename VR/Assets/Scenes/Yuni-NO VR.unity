@@ -2195,6 +2195,7 @@ GameObject:
   - component: {fileID: 463431154}
   - component: {fileID: 463431153}
   - component: {fileID: 463431152}
+  - component: {fileID: 463431155}
   m_Layer: 5
   m_Name: Scrollbar (2)
   m_TagString: Untagged
@@ -2309,6 +2310,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463431150}
   m_CullTransparentMesh: 1
+--- !u!114 &463431155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463431150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9330c868e17358e49b18cfd0b64a515a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Slider3D
+  uiScrollbar: {fileID: 1935147051}
+  sliderValue: 0
+  currentValue: 0
+  maxLightIntensity: 1000
+  targetLight: {fileID: 749229642}
 --- !u!1 &487068224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2847,6 +2865,7 @@ GameObject:
   - component: {fileID: 607742467}
   - component: {fileID: 607742466}
   - component: {fileID: 607742465}
+  - component: {fileID: 607742468}
   m_Layer: 5
   m_Name: Scrollbar (1)
   m_TagString: Untagged
@@ -2961,6 +2980,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607742463}
   m_CullTransparentMesh: 1
+--- !u!114 &607742468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607742463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9330c868e17358e49b18cfd0b64a515a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Slider3D
+  uiScrollbar: {fileID: 1935147051}
+  sliderValue: 0
+  currentValue: 0
+  maxLightIntensity: 1000
+  targetLight: {fileID: 1389147587}
 --- !u!1001 &620619940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3533,7 +3569,11 @@ MonoBehaviour:
   linkedSlider: {fileID: 1289132499}
   flashToggle: {fileID: 1775301628}
   targetLights:
+  - {fileID: 1407276153}
   - {fileID: 1389147587}
+  - {fileID: 749229642}
+  - {fileID: 122797138}
+  - {fileID: 1023761004}
   isFlashing: 1
   flashSpeed: 20
   minBright: 0.2
@@ -7908,6 +7948,7 @@ GameObject:
   - component: {fileID: 1527935899}
   - component: {fileID: 1527935898}
   - component: {fileID: 1527935897}
+  - component: {fileID: 1527935900}
   m_Layer: 5
   m_Name: Scrollbar (4)
   m_TagString: Untagged
@@ -8023,6 +8064,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527935895}
   m_CullTransparentMesh: 1
+--- !u!114 &1527935900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527935895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9330c868e17358e49b18cfd0b64a515a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Slider3D
+  uiScrollbar: {fileID: 1935147051}
+  sliderValue: 0
+  currentValue: 0
+  maxLightIntensity: 1000
+  targetLight: {fileID: 1023761004}
 --- !u!1 &1529538500
 GameObject:
   m_ObjectHideFlags: 0
@@ -10832,6 +10890,7 @@ GameObject:
   - component: {fileID: 1846104427}
   - component: {fileID: 1846104426}
   - component: {fileID: 1846104425}
+  - component: {fileID: 1846104428}
   m_Layer: 5
   m_Name: Scrollbar (3)
   m_TagString: Untagged
@@ -10946,6 +11005,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846104423}
   m_CullTransparentMesh: 1
+--- !u!114 &1846104428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846104423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9330c868e17358e49b18cfd0b64a515a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Slider3D
+  uiScrollbar: {fileID: 1935147051}
+  sliderValue: 0
+  currentValue: 0
+  maxLightIntensity: 1000
+  targetLight: {fileID: 122797138}
 --- !u!1 &1857245893
 GameObject:
   m_ObjectHideFlags: 0
