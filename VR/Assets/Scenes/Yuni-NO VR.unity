@@ -2197,7 +2197,7 @@ GameObject:
   - component: {fileID: 463431152}
   - component: {fileID: 463431155}
   m_Layer: 5
-  m_Name: Scrollbar (2)
+  m_Name: Scrollbar (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2322,7 +2322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9330c868e17358e49b18cfd0b64a515a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Slider3D
-  uiScrollbar: {fileID: 1935147051}
+  uiScrollbar: {fileID: 463431152}
   sliderValue: 0
   currentValue: 0
   maxLightIntensity: 1000
@@ -2867,7 +2867,7 @@ GameObject:
   - component: {fileID: 607742465}
   - component: {fileID: 607742468}
   m_Layer: 5
-  m_Name: Scrollbar (1)
+  m_Name: Scrollbar (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2992,7 +2992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9330c868e17358e49b18cfd0b64a515a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Slider3D
-  uiScrollbar: {fileID: 1935147051}
+  uiScrollbar: {fileID: 607742465}
   sliderValue: 0
   currentValue: 0
   maxLightIntensity: 1000
@@ -6812,7 +6812,6 @@ GameObject:
   - component: {fileID: 1389147589}
   - component: {fileID: 1389147588}
   - component: {fileID: 1389147591}
-  - component: {fileID: 1389147592}
   m_Layer: 0
   m_Name: Spot Light realtime for celebrety (2)
   m_TagString: Untagged
@@ -7018,19 +7017,6 @@ Transform:
   m_Father: {fileID: 1339223845}
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
 --- !u!114 &1389147591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389147586}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bf77bc52be8db429a81a71654bbb05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LightLookAt
-  target: {fileID: 362385170}
---- !u!114 &1389147592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7950,7 +7936,7 @@ GameObject:
   - component: {fileID: 1527935897}
   - component: {fileID: 1527935900}
   m_Layer: 5
-  m_Name: Scrollbar (4)
+  m_Name: Scrollbar (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8076,7 +8062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9330c868e17358e49b18cfd0b64a515a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Slider3D
-  uiScrollbar: {fileID: 1935147051}
+  uiScrollbar: {fileID: 1527935897}
   sliderValue: 0
   currentValue: 0
   maxLightIntensity: 1000
@@ -10892,7 +10878,7 @@ GameObject:
   - component: {fileID: 1846104425}
   - component: {fileID: 1846104428}
   m_Layer: 5
-  m_Name: Scrollbar (3)
+  m_Name: Scrollbar (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11017,7 +11003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9330c868e17358e49b18cfd0b64a515a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Slider3D
-  uiScrollbar: {fileID: 1935147051}
+  uiScrollbar: {fileID: 1846104425}
   sliderValue: 0
   currentValue: 0
   maxLightIntensity: 1000
@@ -11447,7 +11433,7 @@ GameObject:
   - component: {fileID: 1935147051}
   - component: {fileID: 1935147054}
   m_Layer: 5
-  m_Name: Scrollbar
+  m_Name: Scrollbar (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
