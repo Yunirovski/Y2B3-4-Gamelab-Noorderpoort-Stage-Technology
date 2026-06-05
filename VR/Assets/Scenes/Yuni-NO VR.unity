@@ -1849,7 +1849,7 @@ GameObject:
   - component: {fileID: 362385168}
   - component: {fileID: 362385166}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Focus sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5517,7 +5517,7 @@ GameObject:
   - component: {fileID: 1014778732}
   - component: {fileID: 1014778731}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Point Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
