@@ -2,6 +2,9 @@
 
 public class UITargetController : MonoBehaviour
 {
+    [Header("Put Big Ball and Small Balls Here")]
+    public Transform[] allTargets;
+
     [Header("Move Speed")]
     public float moveSpeed = 15f;
 
@@ -18,23 +21,29 @@ public class UITargetController : MonoBehaviour
 
     void Update()
     {
-        // Move the object if we have any active button inputs
+        // If we are pressing buttons
         if (inputX != 0f || inputZ != 0f)
         {
-            // Calculate the movement step for this frame
             Vector3 movement = new Vector3(inputX, 0f, inputZ) * moveSpeed * Time.deltaTime;
 
-            Vector3 newPosition = transform.position + movement;
+            // Move all balls together at the same time
+            foreach (Transform t in allTargets)
+            {
+                if (t != null)
+                {
+                    Vector3 newPosition = t.position + movement;
 
-            // Keep the object inside our allowed area boundaries
-            newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
-            newPosition.z = Mathf.Clamp(newPosition.z, minZ, maxZ);
+                    // Do not let them go out of bounds
+                    newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
+                    newPosition.z = Mathf.Clamp(newPosition.z, minZ, maxZ);
 
-            transform.position = newPosition;
+                    t.position = newPosition;
+                }
+            }
         }
     }
 
-    // --- Public methods for UI buttons ---
+    // --- UI Button stuff ---
 
     public void SetMoveX(float x) { inputX = x; }
     public void StopMoveX() { inputX = 0f; }
