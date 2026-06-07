@@ -8,7 +8,14 @@ public class StageLightController : MonoBehaviour
 
     [Header("Components")]
     public Light stageLight;
-    public Transform movingTarget; // Target to look at
+
+    // --- Big ball and small balls ---
+    [Header("Target Arrays")]
+    public Transform[] sharedTarget;      // Just 1 big ball
+    public Transform[] personalTargets;   // 5 small balls
+
+    // The balls moving right now
+    private Transform[] movingTargets;
 
     [Header("Light Settings")]
     public float baseIntensity = 10f;
@@ -23,13 +30,16 @@ public class StageLightController : MonoBehaviour
     public LightMode currentLightMode = LightMode.Normal;
     public MoveMode currentMoveMode = MoveMode.Manual;
 
-    private Vector3 autoMoveCenter; // Start position
+    private Vector3[] autoMoveCenters;
     private float timer = 0f;
 
     void Start()
     {
         if (stageLight == null) stageLight = GetComponent<Light>();
-        if (movingTarget != null) autoMoveCenter = movingTarget.position;
+
+        // Start with the big ball
+        movingTargets = sharedTarget;
+        UpdateCenters();
     }
 
     void Update()
@@ -38,25 +48,48 @@ public class StageLightController : MonoBehaviour
         HandleMoveMode();
     }
 
+    // --- For UI Toggle ---
+    public void ToggleTargets(bool isScattered)
+    {
+        // True = 5 small balls, False = 1 big ball
+        movingTargets = isScattered ? personalTargets : sharedTarget;
+
+        // Save position so they don't teleport away
+        UpdateCenters();
+    }
+
+    // Save start positions
+    void UpdateCenters()
+    {
+        if (movingTargets != null)
+        {
+            autoMoveCenters = new Vector3[movingTargets.Length];
+            for (int i = 0; i < movingTargets.Length; i++)
+            {
+                if (movingTargets[i] != null)
+                {
+                    autoMoveCenters[i] = movingTargets[i].position;
+                }
+            }
+        }
+    }
+
     void HandleLightMode()
     {
         if (currentLightMode == LightMode.Strobe)
         {
-            // Flash on and off
             float wave = Mathf.Sin(Time.time * strobeSpeed);
             stageLight.intensity = wave > 0 ? baseIntensity : 0f;
         }
         else
         {
-            // Normal light
             stageLight.intensity = baseIntensity;
         }
     }
 
     void HandleMoveMode()
     {
-        // Stop auto move if manual
-        if (currentMoveMode == MoveMode.Manual || movingTarget == null) return;
+        if (currentMoveMode == MoveMode.Manual || movingTargets == null) return;
 
         timer += Time.deltaTime * moveSpeed;
 
@@ -66,39 +99,36 @@ public class StageLightController : MonoBehaviour
         switch (currentMoveMode)
         {
             case MoveMode.AutoHorizontal:
-                // Move on X axis
                 offsetX = Mathf.Sin(timer) * rangeX;
                 break;
-
             case MoveMode.AutoVertical:
-                // Move on Z axis
                 offsetZ = Mathf.Sin(timer) * rangeZ;
                 break;
-
             case MoveMode.Auto2D:
-                // Move in 2D (like an 8 shape)
                 offsetX = Mathf.Sin(timer) * rangeX;
                 offsetZ = Mathf.Sin(timer * 1.3f) * rangeZ;
                 break;
         }
 
-        // Set new position
-        movingTarget.position = autoMoveCenter + new Vector3(offsetX, 0f, offsetZ);
+        // Move all active balls
+        for (int i = 0; i < movingTargets.Length; i++)
+        {
+            if (movingTargets[i] != null)
+            {
+                movingTargets[i].position = autoMoveCenters[i] + new Vector3(offsetX, 0f, offsetZ);
+            }
+        }
     }
 
     // --- UI Buttons ---
-
     public void SetLightNormal() { currentLightMode = LightMode.Normal; }
     public void SetLightStrobe() { currentLightMode = LightMode.Strobe; }
-
-    // For UI Slider
     public void SetBrightness(float value) { baseIntensity = value; }
 
     public void SetMoveManual()
     {
         currentMoveMode = MoveMode.Manual;
-        // Reset start position
-        if (movingTarget != null) autoMoveCenter = movingTarget.position;
+        UpdateCenters(); // Update position when back to manual
     }
 
     public void SetMoveAutoHorizontal() { currentMoveMode = MoveMode.AutoHorizontal; }
