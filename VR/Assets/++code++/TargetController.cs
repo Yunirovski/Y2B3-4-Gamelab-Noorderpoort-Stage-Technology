@@ -31,13 +31,13 @@ public class UITargetController : MonoBehaviour
             {
                 if (t != null)
                 {
-                    Vector3 newPosition = t.position + movement;
-
                     // Do not let them go out of bounds
+                    Vector3 newPosition = t.localPosition + movement;
+
                     newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
                     newPosition.z = Mathf.Clamp(newPosition.z, minZ, maxZ);
 
-                    t.position = newPosition;
+                    t.localPosition = newPosition;
                 }
             }
         }
