@@ -18,6 +18,7 @@ public class GameScoreManager : MonoBehaviour
     [Header("Music")]
     public AudioSource audioSource;
     public Slider progressBar;
+    public Slider progressBar1;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI bonusText;
     public TextMeshProUGUI timeText;   // Game time text
@@ -42,6 +43,8 @@ public class GameScoreManager : MonoBehaviour
 
         if (progressBar != null)
             progressBar.value = time / audioSource.clip.length;
+        if (progressBar1 != null)
+            progressBar1.value = time / audioSource.clip.length;
 
         foreach (var trigger in triggers)
         {
