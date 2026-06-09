@@ -6020,7 +6020,7 @@ MonoBehaviour:
   uiScrollbar: {fileID: 463431152}
   sliderValue: 0
   currentValue: 0
-  maxLightIntensity: 1000
+  maxLightIntensity: 9999
   targetLight: {fileID: 749229642}
 --- !u!1001 &470145131
 PrefabInstance:
@@ -7596,7 +7596,7 @@ MonoBehaviour:
   uiScrollbar: {fileID: 607742465}
   sliderValue: 0
   currentValue: 0
-  maxLightIntensity: 1000
+  maxLightIntensity: 9999
   targetLight: {fileID: 1389147587}
 --- !u!1001 &620619940
 PrefabInstance:
@@ -8467,7 +8467,7 @@ MonoBehaviour:
   - {fileID: 749229642}
   - {fileID: 122797138}
   - {fileID: 1023761004}
-  isFlashing: 1
+  isFlashing: 0
   flashSpeed: 20
   minBright: 0.2
 --- !u!65 &676716560
@@ -18118,7 +18118,7 @@ MonoBehaviour:
   uiScrollbar: {fileID: 1527935897}
   sliderValue: 0
   currentValue: 0
-  maxLightIntensity: 1000
+  maxLightIntensity: 9999
   targetLight: {fileID: 1023761004}
 --- !u!1 &1529538500
 GameObject:
@@ -22103,7 +22103,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 9c7e5cbef056bd84088359ff1b6c9881, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23244,7 +23244,7 @@ MonoBehaviour:
   uiScrollbar: {fileID: 1846104425}
   sliderValue: 0
   currentValue: 0
-  maxLightIntensity: 1000
+  maxLightIntensity: 9999
   targetLight: {fileID: 122797138}
 --- !u!1 &1857245893
 GameObject:
@@ -24314,7 +24314,7 @@ MonoBehaviour:
   uiScrollbar: {fileID: 1935147051}
   sliderValue: 0
   currentValue: 0
-  maxLightIntensity: 1000
+  maxLightIntensity: 9999
   targetLight: {fileID: 1407276153}
 --- !u!224 &1938953894 stripped
 RectTransform:
