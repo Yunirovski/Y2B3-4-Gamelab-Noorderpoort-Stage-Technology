@@ -87,7 +87,7 @@ public class StageLightController : MonoBehaviour
         }
         else
         {
-           
+
             stageLight.enabled = true;
             stageLight.intensity = baseIntensity;
         }
@@ -140,4 +140,22 @@ public class StageLightController : MonoBehaviour
     public void SetMoveAutoHorizontal() { currentMoveMode = MoveMode.AutoHorizontal; }
     public void SetMoveAutoVertical() { currentMoveMode = MoveMode.AutoVertical; }
     public void SetMoveAuto2D() { currentMoveMode = MoveMode.Auto2D; }
+
+
+    public void ToggleStrobeMode(bool isStrobe)
+    {
+        currentLightMode = isStrobe ? LightMode.Strobe : LightMode.Normal;
+    }
+
+    // dropdown mode
+    public void SetMoveModeByIndex(int index)
+    {
+        currentMoveMode = (MoveMode)index;
+
+        // manual mode
+        if (currentMoveMode == MoveMode.Manual)
+        {
+            UpdateCenters();
+        }
+    }
 }
