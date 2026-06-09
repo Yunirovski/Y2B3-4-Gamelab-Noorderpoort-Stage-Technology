@@ -19,6 +19,7 @@ public class StageLightController : MonoBehaviour
 
     [Header("Light Settings")]
     public float baseIntensity = 10f;
+    [Range(1f, 30f)]
     public float strobeSpeed = 15f; // Flash speed
 
     [Header("Auto Move Settings")]
@@ -78,11 +79,16 @@ public class StageLightController : MonoBehaviour
     {
         if (currentLightMode == LightMode.Strobe)
         {
-            float wave = Mathf.Sin(Time.time * strobeSpeed);
-            stageLight.intensity = wave > 0 ? baseIntensity : 0f;
+
+            bool isLightOn = Mathf.Repeat(Time.time * strobeSpeed, 1f) > 0.5f;
+
+            stageLight.enabled = isLightOn;       // 
+            stageLight.intensity = baseIntensity; // 
         }
         else
         {
+           
+            stageLight.enabled = true;
             stageLight.intensity = baseIntensity;
         }
     }
