@@ -1356,7 +1356,7 @@ Transform:
   m_GameObject: {fileID: 107447472}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.12, y: 6.52, z: 50.9}
+  m_LocalPosition: {x: -17.12, y: 6.52, z: 43.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9498,7 +9498,7 @@ Transform:
   m_GameObject: {fileID: 711828716}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.13, y: 11.04, z: 39.92}
+  m_LocalPosition: {x: -5.83, y: 11.04, z: 38.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17783,6 +17783,7 @@ MonoBehaviour:
   boredColor: {r: 0, g: 0, b: 1, a: 1}
   enjoyColor: {r: 0, g: 1, b: 0, a: 1}
   angryColor: {r: 1, g: 0, b: 0, a: 1}
+  cooldownSpeed: 5
 --- !u!114 &1444329387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23959,6 +23960,8 @@ MonoBehaviour:
   rangeZ: 20
   currentLightMode: 0
   currentMoveMode: 0
+  audienceMeter: {fileID: 1444329386}
+  annoyanceSpeed: 15
 --- !u!114 &1843526178
 MonoBehaviour:
   m_ObjectHideFlags: 0

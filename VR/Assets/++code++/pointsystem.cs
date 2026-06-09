@@ -25,12 +25,14 @@ public class pointsystem : MonoBehaviour
         {
             float distance = Vector3.Distance(controlledTarget.position, scoringTarget.position);
 
-            // Check if they are close enough
-            if (distance <= scoreDistance)
+            
+            AudienceMeter meter = Object.FindAnyObjectByType<AudienceMeter>();
+
+            if (distance <= scoreDistance && (meter == null || meter.emotionValue < 100f))
             {
                 int multiplier = scoreManager.currentBonus;
 
-                // Add points
+                
                 fractionalScore += baseScorePerSecond * Time.deltaTime * multiplier;
 
                 if (fractionalScore >= 1f)

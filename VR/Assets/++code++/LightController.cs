@@ -28,6 +28,10 @@ public class StageLightController : MonoBehaviour
     public LightMode currentLightMode = LightMode.Normal;
     public MoveMode currentMoveMode = MoveMode.Manual;
 
+    [Header("Audience Reaction")]
+    public AudienceMeter audienceMeter;
+    public float annoyanceSpeed = 15f;
+
     // Keep their home positions so they don't group up
     private Vector3[] sharedStartPos;
     private Vector3[] personalStartPos;
@@ -48,6 +52,9 @@ public class StageLightController : MonoBehaviour
     {
         HandleLightMode();
         HandleMoveMode();
+        HandleLightMode();
+        HandleMoveMode();
+        HandleAudienceAnnoyance();
     }
 
     void SaveAllStartingPositions()
@@ -170,5 +177,14 @@ public class StageLightController : MonoBehaviour
     public void SetMoveModeByIndex(int index)
     {
         currentMoveMode = (MoveMode)index;
+    }
+
+    void HandleAudienceAnnoyance()
+    {
+        
+        if (currentLightMode == LightMode.Strobe && audienceMeter != null)
+        {
+            audienceMeter.emotionValue += annoyanceSpeed * Time.deltaTime;
+        }
     }
 }

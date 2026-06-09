@@ -19,6 +19,7 @@ public class AudienceMeter : MonoBehaviour
     public Color boredColor = Color.blue;
     public Color enjoyColor = Color.green;
     public Color angryColor = Color.red;
+    public float cooldownSpeed = 5f;
 
     void Start()
     {
@@ -31,6 +32,10 @@ public class AudienceMeter : MonoBehaviour
 
     void Update()
     {
+        emotionValue -= cooldownSpeed * Time.deltaTime;
+
+       
+        emotionValue = Mathf.Clamp(emotionValue, 0f, 100f);
         // Keep number inside 0 - 100
         emotionValue = Mathf.Clamp(emotionValue, 0f, 100f);
 
