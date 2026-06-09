@@ -19,6 +19,8 @@ public class StageLightController : MonoBehaviour
 
     [Header("Light Settings")]
     public float baseIntensity = 10f;
+    [Range(1f, 30f)]
+
     public float strobeSpeed = 15f; // Flash speed
 
     [Header("Auto Move Settings")]
@@ -32,6 +34,9 @@ public class StageLightController : MonoBehaviour
 
     private Vector3[] autoMoveCenters;
     private float timer = 0f;
+
+
+
 
     void Start()
     {
@@ -78,11 +83,17 @@ public class StageLightController : MonoBehaviour
     {
         if (currentLightMode == LightMode.Strobe)
         {
-            float wave = Mathf.Sin(Time.time * strobeSpeed);
-            stageLight.intensity = wave > 0 ? baseIntensity : 0f;
+            // Mathf.Repeat 会在 0 到 1 之间不断循环。
+            // 乘以 strobeSpeed 控制循环快慢。大于 0.5 开灯，小于 0.5 关灯。
+            bool isLightOn = Mathf.Repeat(Time.time * strobeSpeed, 1f) > 0.5f;
+
+            stageLight.enabled = isLightOn;       // 直接硬核开关灯光组件，防止高光残留
+            stageLight.intensity = baseIntensity; // 保持开启时是你设定的高亮度
         }
         else
         {
+            // 正常模式下确保灯是开着的
+            stageLight.enabled = true;
             stageLight.intensity = baseIntensity;
         }
     }
@@ -134,4 +145,24 @@ public class StageLightController : MonoBehaviour
     public void SetMoveAutoHorizontal() { currentMoveMode = MoveMode.AutoHorizontal; }
     public void SetMoveAutoVertical() { currentMoveMode = MoveMode.AutoVertical; }
     public void SetMoveAuto2D() { currentMoveMode = MoveMode.Auto2D; }
+
+    // --- 新增的 UI 控制方法 ---
+
+    // 1. 给 UI Toggle (复选框) 使用：勾选=闪烁，取消勾选=常亮
+    public void ToggleStrobeMode(bool isStrobe)
+    {
+        currentLightMode = isStrobe ? LightMode.Strobe : LightMode.Normal;
+    }
+
+    // 2. 给 UI Dropdown (下拉菜单) 使用：0=手动, 1=水平, 2=垂直, 3=2D混合
+    public void SetMoveModeByIndex(int index)
+    {
+        currentMoveMode = (MoveMode)index;
+
+        // 如果切回手动模式，重新记录一下中心点，防止乱飘
+        if (currentMoveMode == MoveMode.Manual)
+        {
+            UpdateCenters();
+        }
+    }
 }
