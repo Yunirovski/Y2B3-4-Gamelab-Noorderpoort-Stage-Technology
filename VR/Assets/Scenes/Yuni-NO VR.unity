@@ -15095,9 +15095,9 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   useEmission: 1
   emissionStrength: 2
-  playPauseKey: 274
-  forwardKey: 275
-  backKey: 276
+  playPauseKey: 50
+  forwardKey: 51
+  backKey: 49
   seekSeconds: 5
 --- !u!4 &1125705592
 Transform:
@@ -15392,9 +15392,9 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   useEmission: 1
   emissionStrength: 2
-  playPauseKey: 274
-  forwardKey: 275
-  backKey: 276
+  playPauseKey: 50
+  forwardKey: 51
+  backKey: 49
   seekSeconds: 5
 --- !u!4 &1182915405
 Transform:
@@ -17274,7 +17274,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 0.6886792, g: 0.51001245, b: 0.6838423, a: 0.16470589}
+  m_Color: {r: 1, g: 0.80784315, b: 0, a: 0.16470589}
   m_Intensity: 215.97
   m_Range: 56.649628
   m_SpotAngle: 53.14704
@@ -17373,7 +17373,7 @@ MonoBehaviour:
   pluginVersion: 20002
   colorFromLight: 1
   colorMode: 0
-  color: {r: 0.6886792, g: 0.51001245, b: 0.6838423, a: 0.16470589}
+  color: {r: 1, g: 0.80784315, b: 0, a: 0.16470589}
   colorGradient:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}

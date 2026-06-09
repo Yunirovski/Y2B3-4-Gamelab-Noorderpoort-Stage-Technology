@@ -21,29 +21,28 @@ public class UITargetController : MonoBehaviour
 
     void Update()
     {
-        // If we are pressing buttons
-        if (inputX != 0f || inputZ != 0f)
-        {
-            Vector3 movement = new Vector3(inputX, 0f, inputZ) * moveSpeed * Time.deltaTime;
+        float keyX = Input.GetAxisRaw("Horizontal");
+        float keyZ = Input.GetAxisRaw("Vertical");
 
-            // Move all balls together at the same time
+        float finalX = (keyX != 0f) ? keyX : inputX;
+        float finalZ = (keyZ != 0f) ? keyZ : inputZ;
+
+        if (finalX != 0f || finalZ != 0f)
+        {
+            Vector3 movement = new Vector3(finalX, 0f, finalZ) * moveSpeed * Time.unscaledDeltaTime;
+
             foreach (Transform t in allTargets)
             {
                 if (t != null)
                 {
-                    // Do not let them go out of bounds
                     Vector3 newPosition = t.localPosition + movement;
-
                     newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
                     newPosition.z = Mathf.Clamp(newPosition.z, minZ, maxZ);
-
                     t.localPosition = newPosition;
                 }
             }
         }
     }
-
-    // --- UI Button stuff ---
 
     public void SetMoveX(float x) { inputX = x; }
     public void StopMoveX() { inputX = 0f; }
