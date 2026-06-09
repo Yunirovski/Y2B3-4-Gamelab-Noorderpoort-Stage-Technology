@@ -2060,6 +2060,21 @@ MonoBehaviour:
     bonus: 3
     bonusSprite: {fileID: 21300000, guid: 0066e675b5e545a48b493afcb79af968, type: 3}
     isDone: 0
+  - time: 30
+    duration: 5
+    bonus: 3
+    bonusSprite: {fileID: 21300000, guid: 0066e675b5e545a48b493afcb79af968, type: 3}
+    isDone: 0
+  - time: 40
+    duration: 5
+    bonus: 3
+    bonusSprite: {fileID: 21300000, guid: 0066e675b5e545a48b493afcb79af968, type: 3}
+    isDone: 0
+  - time: 50
+    duration: 5
+    bonus: 2
+    bonusSprite: {fileID: 21300000, guid: 05623061756fc94418489b345ef9112d, type: 3}
+    isDone: 0
   currentScore: 0
   currentBonus: 1
 --- !u!82 &141983149
