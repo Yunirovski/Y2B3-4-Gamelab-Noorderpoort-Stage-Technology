@@ -2,45 +2,46 @@
 
 public class StageLightController : MonoBehaviour
 {
-    // States
     public enum LightMode { Normal, Strobe }
     public enum MoveMode { Manual, AutoHorizontal, AutoVertical, Auto2D }
 
     [Header("Components")]
     public Light stageLight;
 
-    // --- Big ball and small balls ---
     [Header("Target Arrays")]
-    public Transform[] sharedTarget;      // Just 1 big ball
-    public Transform[] personalTargets;   // 5 small balls
+    public Transform[] sharedTarget;
+    public Transform[] personalTargets;
 
-    // The balls moving right now
     private Transform[] movingTargets;
 
     [Header("Light Settings")]
     public float baseIntensity = 10f;
     [Range(1f, 30f)]
-    public float strobeSpeed = 15f; // Flash speed
+    public float strobeSpeed = 15f;
 
     [Header("Auto Move Settings")]
     public float moveSpeed = 3f;
-    public float rangeX = 20f; // X move range
-    public float rangeZ = 20f; // Z move range
+    public float rangeX = 20f;
+    public float rangeZ = 20f;
 
     [Header("Current States")]
     public LightMode currentLightMode = LightMode.Normal;
     public MoveMode currentMoveMode = MoveMode.Manual;
 
-    private Vector3[] autoMoveCenters;
+    // Keep their home positions so they don't group up
+    private Vector3[] sharedStartPos;
+    private Vector3[] personalStartPos;
+
     private float timer = 0f;
 
     void Start()
     {
         if (stageLight == null) stageLight = GetComponent<Light>();
 
-        // Start with the big ball
+        // Save home positions right when the game starts, never overwrite them!
+        SaveAllStartingPositions();
+
         movingTargets = sharedTarget;
-        UpdateCenters();
     }
 
     void Update()
@@ -49,29 +50,49 @@ public class StageLightController : MonoBehaviour
         HandleMoveMode();
     }
 
-    // --- For UI Toggle ---
-    public void ToggleTargets(bool isScattered)
+    void SaveAllStartingPositions()
     {
-        // True = 5 small balls, False = 1 big ball
-        movingTargets = isScattered ? personalTargets : sharedTarget;
+        // Remember where the big ball is
+        if (sharedTarget != null)
+        {
+            sharedStartPos = new Vector3[sharedTarget.Length];
+            for (int i = 0; i < sharedTarget.Length; i++)
+            {
+                if (sharedTarget[i] != null)
+                    sharedStartPos[i] = sharedTarget[i].localPosition;
+            }
+        }
 
-        // Save position so they don't teleport away
-        UpdateCenters();
+        // Remember where the 5 small balls are
+        if (personalTargets != null)
+        {
+            personalStartPos = new Vector3[personalTargets.Length];
+            for (int i = 0; i < personalTargets.Length; i++)
+            {
+                if (personalTargets[i] != null)
+                    personalStartPos[i] = personalTargets[i].localPosition;
+            }
+        }
     }
 
-    // Save start positions
-    void UpdateCenters()
+    public void ToggleTargets(bool isScattered)
     {
-        if (movingTargets != null)
+        movingTargets = isScattered ? personalTargets : sharedTarget;
+
+        // Send the idle balls back home to prevent messy offsets
+        if (isScattered)
+            ResetTargetsToStart(sharedTarget, sharedStartPos);
+        else
+            ResetTargetsToStart(personalTargets, personalStartPos);
+    }
+
+    void ResetTargetsToStart(Transform[] targets, Vector3[] startPos)
+    {
+        if (targets == null || startPos == null) return;
+        for (int i = 0; i < targets.Length; i++)
         {
-            autoMoveCenters = new Vector3[movingTargets.Length];
-            for (int i = 0; i < movingTargets.Length; i++)
-            {
-                if (movingTargets[i] != null)
-                {
-                    autoMoveCenters[i] = movingTargets[i].position;
-                }
-            }
+            if (targets[i] != null)
+                targets[i].localPosition = startPos[i];
         }
     }
 
@@ -79,15 +100,13 @@ public class StageLightController : MonoBehaviour
     {
         if (currentLightMode == LightMode.Strobe)
         {
-
-            bool isLightOn = Mathf.Repeat(Time.time * strobeSpeed, 1f) > 0.5f;
-
-            stageLight.enabled = isLightOn;       // 
-            stageLight.intensity = baseIntensity; // 
+            // Use unscaledTime so it keeps flashing even if you press ESC to pause!
+            bool isLightOn = Mathf.Repeat(Time.unscaledTime * strobeSpeed, 1f) > 0.5f;
+            stageLight.enabled = isLightOn;
+            stageLight.intensity = baseIntensity;
         }
         else
         {
-
             stageLight.enabled = true;
             stageLight.intensity = baseIntensity;
         }
@@ -97,7 +116,8 @@ public class StageLightController : MonoBehaviour
     {
         if (currentMoveMode == MoveMode.Manual || movingTargets == null) return;
 
-        timer += Time.deltaTime * moveSpeed;
+        // Unscaled delta time so movement continues while the game is paused
+        timer += Time.unscaledDeltaTime * moveSpeed;
 
         float offsetX = 0f;
         float offsetZ = 0f;
@@ -116,46 +136,39 @@ public class StageLightController : MonoBehaviour
                 break;
         }
 
-        // Move all active balls
+        // Pick the correct home positions to calculate offset from
+        Vector3[] correctStartPos = (movingTargets == sharedTarget) ? sharedStartPos : personalStartPos;
+
         for (int i = 0; i < movingTargets.Length; i++)
         {
-            if (movingTargets[i] != null)
+            if (movingTargets[i] != null && correctStartPos != null)
             {
-                movingTargets[i].position = autoMoveCenters[i] + new Vector3(offsetX, 0f, offsetZ);
+                // Add the offset to their home position so they move together but keep their formation!
+                movingTargets[i].localPosition = correctStartPos[i] + new Vector3(offsetX, 0f, offsetZ);
             }
         }
     }
 
-    // --- UI Buttons ---
+    // --- UI Controls ---
+
     public void SetLightNormal() { currentLightMode = LightMode.Normal; }
     public void SetLightStrobe() { currentLightMode = LightMode.Strobe; }
     public void SetBrightness(float value) { baseIntensity = value; }
 
-    public void SetMoveManual()
-    {
-        currentMoveMode = MoveMode.Manual;
-        UpdateCenters(); // Update position when back to manual
-    }
-
+    public void SetMoveManual() { currentMoveMode = MoveMode.Manual; }
     public void SetMoveAutoHorizontal() { currentMoveMode = MoveMode.AutoHorizontal; }
     public void SetMoveAutoVertical() { currentMoveMode = MoveMode.AutoVertical; }
     public void SetMoveAuto2D() { currentMoveMode = MoveMode.Auto2D; }
 
-
+    // Use this for UI Toggle (Checkbox)
     public void ToggleStrobeMode(bool isStrobe)
     {
         currentLightMode = isStrobe ? LightMode.Strobe : LightMode.Normal;
     }
 
-    // dropdown mode
+    // Use this for UI Dropdown (0 = Manual, 1 = Horizontal, etc.)
     public void SetMoveModeByIndex(int index)
     {
         currentMoveMode = (MoveMode)index;
-
-        // manual mode
-        if (currentMoveMode == MoveMode.Manual)
-        {
-            UpdateCenters();
-        }
     }
 }

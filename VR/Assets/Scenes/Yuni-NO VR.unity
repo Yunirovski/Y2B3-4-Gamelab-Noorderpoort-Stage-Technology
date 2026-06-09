@@ -11463,7 +11463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cceb3c6745a7e04e9890524ef2f2db5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 46.79
+      value: 44.510002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cceb3c6745a7e04e9890524ef2f2db5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11835,7 +11835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e98215be5dc327c40a29e2a291b629b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 43
+      value: 40.72
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e98215be5dc327c40a29e2a291b629b5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15304,6 +15304,98 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1182915403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182915405}
+  - component: {fileID: 1182915404}
+  m_Layer: 0
+  m_Name: Visualizer (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1182915404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182915403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c75ba277ec144448df3c971b4214c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSpectrumVisualizer
+  audioSource: {fileID: 141983149}
+  barPrefab: {fileID: 5359923525806376421, guid: 6442bcccd0901294d9d41523efefe0d9, type: 3}
+  barCount: 28
+  spacing: 0.6
+  minHeight: 0.2
+  heightScale: 40
+  smoothSpeed: 12
+  sampleCount: 1024
+  fftWindow: 5
+  startSample: 2
+  bassBoost: 2
+  Boost: 50
+  colorGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0.69612426, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  useEmission: 1
+  emissionStrength: 2
+  playPauseKey: 274
+  forwardKey: 275
+  backKey: 276
+  seekSeconds: 5
+--- !u!4 &1182915405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182915403}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.22673629, y: 0, z: 0, w: 0.97395617}
+  m_LocalPosition: {x: -1.761, y: 10.81553, z: -79.28}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 26.21, y: 0, z: 0}
 --- !u!1001 &1188379927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23788,7 +23880,7 @@ Transform:
   m_GameObject: {fileID: 1843526173}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -191.8204, y: -0, z: 104.71797}
+  m_LocalPosition: {x: -15, y: 6.62, z: 44.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26408,7 +26500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cceb3c6745a7e04e9890524ef2f2db5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 46.79
+      value: 44.510002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cceb3c6745a7e04e9890524ef2f2db5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27546,6 +27638,7 @@ SceneRoots:
   - {fileID: 1954159292}
   - {fileID: 1657490243}
   - {fileID: 1125705592}
+  - {fileID: 1182915405}
   - {fileID: 141983150}
   - {fileID: 397914955}
   - {fileID: 1425953854}
