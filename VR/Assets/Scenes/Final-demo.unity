@@ -25373,8 +25373,8 @@ Light:
   m_Color: {r: 1, g: 0.80784315, b: 0, a: 0.16470589}
   m_Intensity: 215.97
   m_Range: 56.649628
-  m_SpotAngle: 53.14704
-  m_InnerSpotAngle: 51.37268
+  m_SpotAngle: 35
+  m_InnerSpotAngle: 25.5
   m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 2
@@ -25508,7 +25508,7 @@ MonoBehaviour:
   hdrpExposureWeight: 0
   blendingMode: 0
   spotAngleFromLight: 1
-  spotAngle: 53.14704
+  spotAngle: 35
   spotAngleMultiplier: 1
   coneRadiusStart: 0
   shaderAccuracy: 0
