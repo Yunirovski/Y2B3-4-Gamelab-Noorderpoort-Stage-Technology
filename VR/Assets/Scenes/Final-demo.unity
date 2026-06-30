@@ -3093,10 +3093,10 @@ MonoBehaviour:
   channel3_Skill: {fileID: 46117477}
   pointSystem: {fileID: 1680576486}
   stageLightController: {fileID: 1843526177}
-  baseVolume: 1
-  focusVolume: 1
-  skillVolume: 1
-  fadeSpeed: 5
+  baseVolume: 0.36
+  focusVolume: 0.652
+  skillVolume: 0.909
+  fadeSpeed: 3
 --- !u!1001 &142925981
 PrefabInstance:
   m_ObjectHideFlags: 0
