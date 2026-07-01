@@ -24606,7 +24606,7 @@ RectTransform:
   m_Father: {fileID: 1177816854}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.065}
   m_AnchoredPosition: {x: 0.1348, y: -0.06781006}
   m_SizeDelta: {x: 37.3065, y: 17.5953}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26916,7 +26916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1454391293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28163,7 +28163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7145621280255295868, guid: abfedd366c8e3514ab02908d18135e36, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7140175685959018115, guid: abfedd366c8e3514ab02908d18135e36, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7062829317700410234, guid: abfedd366c8e3514ab02908d18135e36, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -28379,7 +28383,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4d79c2d1fb9e66048b463a25234aceaf, type: 2}
     - target: {fileID: 1800325823636021096, guid: abfedd366c8e3514ab02908d18135e36, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2371337162763847840, guid: abfedd366c8e3514ab02908d18135e36, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
