@@ -3,20 +3,30 @@ using TMPro;
 
 public class Skillsystem : MonoBehaviour
 {
-    [Header("References")]
     public GameScoreManager scoreManager;
     public StageLightController stageLightController;
     public TextMeshProUGUI skillCountText;
 
-    [Header("Skill Settings")]
     public int scorePerSkill = 50;
     public int maxSkillCount = 3;
     public float skillDuration = 5f;
+
+    public Light skillLight1;
+    public Light skillLight2;
 
     private int currentSkillCount = 0;
     private int lastProcessedScore = 0;
     private bool skillActive = false;
     private float skillTimer = 0f;
+
+    void Start()
+    {
+        if (skillLight1 != null)
+            skillLight1.gameObject.SetActive(false);
+
+        if (skillLight2 != null)
+            skillLight2.gameObject.SetActive(false);
+    }
 
     void Update()
     {
@@ -31,9 +41,7 @@ public class Skillsystem : MonoBehaviour
             lastProcessedScore += skillsToAdd * scorePerSkill;
 
             if (currentSkillCount > maxSkillCount)
-            {
                 currentSkillCount = maxSkillCount;
-            }
         }
 
         if (skillActive)
@@ -41,15 +49,11 @@ public class Skillsystem : MonoBehaviour
             skillTimer -= Time.deltaTime;
 
             if (skillTimer <= 0f)
-            {
                 EndSkill();
-            }
         }
 
         if (skillCountText != null)
-        {
             skillCountText.text = currentSkillCount + "/" + maxSkillCount;
-        }
     }
 
     public void UseHorizontalSkill()
@@ -59,6 +63,12 @@ public class Skillsystem : MonoBehaviour
         currentSkillCount--;
         skillActive = true;
         skillTimer = skillDuration;
+
+        if (skillLight1 != null)
+            skillLight1.gameObject.SetActive(true);
+
+        if (skillLight2 != null)
+            skillLight2.gameObject.SetActive(true);
 
         if (stageLightController != null)
         {
@@ -75,6 +85,12 @@ public class Skillsystem : MonoBehaviour
         skillActive = true;
         skillTimer = skillDuration;
 
+        if (skillLight1 != null)
+            skillLight1.gameObject.SetActive(true);
+
+        if (skillLight2 != null)
+            skillLight2.gameObject.SetActive(true);
+
         if (stageLightController != null)
         {
             stageLightController.SetLightStrobe();
@@ -90,6 +106,12 @@ public class Skillsystem : MonoBehaviour
         skillActive = true;
         skillTimer = skillDuration;
 
+        if (skillLight1 != null)
+            skillLight1.gameObject.SetActive(true);
+
+        if (skillLight2 != null)
+            skillLight2.gameObject.SetActive(true);
+
         if (stageLightController != null)
         {
             stageLightController.SetLightStrobe();
@@ -100,6 +122,12 @@ public class Skillsystem : MonoBehaviour
     void EndSkill()
     {
         skillActive = false;
+
+        if (skillLight1 != null)
+            skillLight1.gameObject.SetActive(false);
+
+        if (skillLight2 != null)
+            skillLight2.gameObject.SetActive(false);
 
         if (stageLightController != null)
         {

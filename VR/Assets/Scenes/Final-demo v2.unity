@@ -3237,6 +3237,7 @@ MonoBehaviour:
   channel2_Focus: {fileID: 1473791171}
   channel3_Skill: {fileID: 46117477}
   pointSystem: {fileID: 1680576486}
+  pointSystem2: {fileID: 2005364247}
   stageLightController: {fileID: 1843526177}
   baseVolume: 0.36
   focusVolume: 0.652
@@ -25307,7 +25308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1348221006
 Transform:
   m_ObjectHideFlags: 0
@@ -35802,6 +35803,8 @@ MonoBehaviour:
   scorePerSkill: 50
   maxSkillCount: 3
   skillDuration: 5
+  skillLight1: {fileID: 1348221011}
+  skillLight2: {fileID: 2005364251}
 --- !u!114 &1843526180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39168,7 +39171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2005364246
 Transform:
   m_ObjectHideFlags: 0
@@ -39191,13 +39194,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005364245}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d19d347a9df6ad14d921de0c25909d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightScoreTracker
-  controlledTarget: {fileID: 362385170}
-  scoringTarget: {fileID: 1014778734}
+  controlledTarget: {fileID: 1296948484}
+  scoringTarget: {fileID: 1296948484}
   scoreDistance: 7
   scoreManager: {fileID: 141983148}
   baseScorePerSecond: 10
