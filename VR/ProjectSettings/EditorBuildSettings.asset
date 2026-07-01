@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Dancers Movement.unity
     guid: 26ba6576b7aad034fbca087db2933b68
+  - enabled: 1
+    path: Assets/Scenes/Final-demo v2.unity
+    guid: afc818ddc54a06542ab3e398648169c1
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}
