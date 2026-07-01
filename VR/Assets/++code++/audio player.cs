@@ -36,6 +36,8 @@ public class LayeredMusicController : MonoBehaviour
     {
         if (channel1_Base == null || channel2_Focus == null || channel3_Skill == null) return;
 
+        if (channel1_Base.isPlaying == false && channel2_Focus.isPlaying == false && channel3_Skill.isPlaying == false) Debug.Log("game ended");
+
         bool isFocusActive = pointSystem != null && pointSystem.isStarInRange;
         bool isSkillActive = stageLightController != null &&
                              stageLightController.currentMoveMode != StageLightController.MoveMode.Manual;
