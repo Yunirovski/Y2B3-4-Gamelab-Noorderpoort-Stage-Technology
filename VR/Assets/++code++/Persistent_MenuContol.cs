@@ -19,7 +19,7 @@ public class ButtonControl : MonoBehaviour
     {
         //Calls the TaskOnClick/TaskWithParameters/ButtonClicked method when you click the Button
         ResumeButton.onClick.AddListener(ResumeTaskOnClick);
-        RestartButton.onClick.AddListener(RestartTaskOnClick);
+        //RestartButton.onClick.AddListener(RestartTaskOnClick);
         QuitButton.onClick.AddListener(QuitTaskOnClick);
 
     }
@@ -29,7 +29,7 @@ public class ButtonControl : MonoBehaviour
         //Output this to console when Button1 or Button3 is clicked
 
         PauseMenu.SetActive(false);
-
+        
         Debug.Log("Game is resumed");
 
     }

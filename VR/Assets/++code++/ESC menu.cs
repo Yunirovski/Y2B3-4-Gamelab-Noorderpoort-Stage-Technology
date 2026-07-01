@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class ESCmenu : MonoBehaviour
 {
     public GameObject menuPanel;
-    private bool isPaused = false;
+    public bool isPaused = false;
     private Player playerScript;
     public Player player;
     public TMP_Text statusText;
+    [SerializeField] SceneTimer sceneTimer;
 
     
     void Start()
@@ -27,6 +28,7 @@ public class ESCmenu : MonoBehaviour
             menuPanel.SetActive(isPaused);
             Time.timeScale = isPaused ? 0f : 1f;
             UpdateCursor();
+            sceneTimer.PauseTimer();
         }
 
         {
