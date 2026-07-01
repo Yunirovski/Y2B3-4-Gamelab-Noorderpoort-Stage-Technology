@@ -5,8 +5,11 @@ using VLB;
 public class LightSliderController : MonoBehaviour
 {
     public Scrollbar brightnessSlider;
-    public Light unityLight;
+    public StageLightController stageLightController;
     public VolumetricLightBeamSD vlbBeam;
+
+    public float maxLightIntensity = 5f;
+    public float maxVLBIntensity = 0.2f;
 
     void Start()
     {
@@ -17,9 +20,16 @@ public class LightSliderController : MonoBehaviour
 
     void OnSliderValueChanged(float value)
     {
-        unityLight.intensity = value * 5f;
-        vlbBeam.intensityGlobal = value * 0.2f;
-        vlbBeam.enabled = value > 0f;
-        vlbBeam.UpdateAfterManualPropertyChange();
+        if (stageLightController != null)
+        {
+            stageLightController.baseIntensity = value * maxLightIntensity;
+        }
+
+        if (vlbBeam != null)
+        {
+            vlbBeam.intensityGlobal = value * maxVLBIntensity;
+            vlbBeam.enabled = value > 0f;
+            vlbBeam.UpdateAfterManualPropertyChange();
+        }
     }
 }

@@ -9652,7 +9652,7 @@ MonoBehaviour:
   uiScrollbar: {fileID: 463431152}
   sliderValue: 0
   currentValue: 0
-  maxLightIntensity: 9999
+  maxLightIntensity: 5000
   targetLight: {fileID: 749229642}
 --- !u!114 &463431156
 MonoBehaviour:
@@ -9667,8 +9667,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightSliderController
   brightnessSlider: {fileID: 463431152}
-  unityLight: {fileID: 749229642}
+  stageLightController: {fileID: 0}
   vlbBeam: {fileID: 749229641}
+  maxLightIntensity: 5
+  maxVLBIntensity: 0.2
 --- !u!1001 &470145131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11843,7 +11845,7 @@ MonoBehaviour:
   uiScrollbar: {fileID: 607742465}
   sliderValue: 0
   currentValue: 0
-  maxLightIntensity: 9999
+  maxLightIntensity: 5000
   targetLight: {fileID: 1389147587}
 --- !u!114 &607742469
 MonoBehaviour:
@@ -11858,8 +11860,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightSliderController
   brightnessSlider: {fileID: 607742465}
-  unityLight: {fileID: 1389147587}
+  stageLightController: {fileID: 0}
   vlbBeam: {fileID: 1389147589}
+  maxLightIntensity: 5
+  maxVLBIntensity: 0.2
 --- !u!1001 &620619940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26280,9 +26284,9 @@ RectTransform:
   - {fileID: 1527935896}
   - {fileID: 1454391293}
   - {fileID: 1775301627}
+  - {fileID: 1378857765}
   - {fileID: 2062400200}
   - {fileID: 1180775855}
-  - {fileID: 1378857765}
   - {fileID: 1827551037}
   - {fileID: 2071438592}
   - {fileID: 1703820794}
@@ -26388,7 +26392,7 @@ MonoBehaviour:
   uiScrollbar: {fileID: 1454391295}
   sliderValue: 0
   currentValue: 0
-  maxLightIntensity: 9999
+  maxLightIntensity: 5000
   targetLight: {fileID: 1680576490}
 --- !u!114 &1454391295
 MonoBehaviour:
@@ -26502,8 +26506,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightSliderController
   brightnessSlider: {fileID: 1454391295}
-  unityLight: {fileID: 1680576490}
+  stageLightController: {fileID: 0}
   vlbBeam: {fileID: 1680576489}
+  maxLightIntensity: 5
+  maxVLBIntensity: 0.2
 --- !u!1001 &1464739288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28113,7 +28119,7 @@ MonoBehaviour:
   uiScrollbar: {fileID: 1527935897}
   sliderValue: 0
   currentValue: 0
-  maxLightIntensity: 9999
+  maxLightIntensity: 5000
   targetLight: {fileID: 1023761004}
 --- !u!114 &1527935901
 MonoBehaviour:
@@ -28128,8 +28134,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightSliderController
   brightnessSlider: {fileID: 1527935897}
-  unityLight: {fileID: 1023761004}
+  stageLightController: {fileID: 0}
   vlbBeam: {fileID: 1023761003}
+  maxLightIntensity: 5
+  maxVLBIntensity: 0.2
 --- !u!1 &1529538500
 GameObject:
   m_ObjectHideFlags: 0
@@ -34472,6 +34480,7 @@ GameObject:
   - component: {fileID: 1843526177}
   - component: {fileID: 1843526178}
   - component: {fileID: 1843526179}
+  - component: {fileID: 1843526180}
   m_Layer: 0
   m_Name: ===System===
   m_TagString: Untagged
@@ -34601,6 +34610,25 @@ MonoBehaviour:
   scorePerSkill: 50
   maxSkillCount: 3
   skillDuration: 5
+--- !u!114 &1843526180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843526173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa15ab24593fefa408f5662b1341ec84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FiveScrollbarBounce
+  scrollbars:
+  - {fileID: 1935147051}
+  - {fileID: 607742465}
+  - {fileID: 463431152}
+  - {fileID: 1846104425}
+  - {fileID: 1527935897}
+  speed: 3
 --- !u!1001 &1845332232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34842,7 +34870,7 @@ MonoBehaviour:
   uiScrollbar: {fileID: 1846104425}
   sliderValue: 0
   currentValue: 0
-  maxLightIntensity: 9999
+  maxLightIntensity: 5000
   targetLight: {fileID: 122797138}
 --- !u!114 &1846104429
 MonoBehaviour:
@@ -34857,8 +34885,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightSliderController
   brightnessSlider: {fileID: 1846104425}
-  unityLight: {fileID: 122797138}
+  stageLightController: {fileID: 0}
   vlbBeam: {fileID: 122797137}
+  maxLightIntensity: 5
+  maxVLBIntensity: 0.2
 --- !u!1 &1857245893
 GameObject:
   m_ObjectHideFlags: 0
@@ -36386,7 +36416,7 @@ MonoBehaviour:
   uiScrollbar: {fileID: 1935147051}
   sliderValue: 0
   currentValue: 0
-  maxLightIntensity: 9999
+  maxLightIntensity: 5000
   targetLight: {fileID: 1407276153}
 --- !u!114 &1935147055
 MonoBehaviour:
@@ -36401,8 +36431,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightSliderController
   brightnessSlider: {fileID: 1935147051}
-  unityLight: {fileID: 1407276153}
+  stageLightController: {fileID: 0}
   vlbBeam: {fileID: 1407276155}
+  maxLightIntensity: 5
+  maxVLBIntensity: 0.2
 --- !u!224 &1938953894 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4941219564456579801, guid: dc067c577ec1b854684d789b6e727cc0, type: 3}
@@ -38950,8 +38982,20 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 1
+      m_Calls:
+      - m_Target: {fileID: 1843526180}
+        m_TargetAssemblyTypeName: FiveScrollbarBounce, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &2064208749
 GameObject:
   m_ObjectHideFlags: 0
