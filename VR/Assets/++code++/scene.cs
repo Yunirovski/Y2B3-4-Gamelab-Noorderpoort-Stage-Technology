@@ -24,6 +24,11 @@ public class SceneNavigation : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+    public void RestartDemoScene()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+    }
 
     public void QuitGame()
     {
