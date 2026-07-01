@@ -214,6 +214,15 @@ public class StageLightController : MonoBehaviour
     {
         currentMoveMode = (MoveMode)index;
     }
+    public void ResetSharedTargets()
+    {
+        ResetTargetsToStart(sharedTarget, sharedStartPos);
+    }
+
+    public void ResetPersonalTargets()
+    {
+        ResetTargetsToStart(personalTargets, personalStartPos);
+    }
 
     void HandleAudienceAnnoyance()
     {
