@@ -9385,6 +9385,7 @@ GameObject:
   - component: {fileID: 463431153}
   - component: {fileID: 463431152}
   - component: {fileID: 463431155}
+  - component: {fileID: 463431156}
   m_Layer: 5
   m_Name: Scrollbar (3)
   m_TagString: Untagged
@@ -9516,6 +9517,21 @@ MonoBehaviour:
   currentValue: 0
   maxLightIntensity: 9999
   targetLight: {fileID: 749229642}
+--- !u!114 &463431156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463431150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52440312e0570714e92e743c1bf41ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightSliderController
+  brightnessSlider: {fileID: 463431152}
+  unityLight: {fileID: 749229642}
+  vlbBeam: {fileID: 749229641}
 --- !u!1001 &470145131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11560,6 +11576,7 @@ GameObject:
   - component: {fileID: 607742466}
   - component: {fileID: 607742465}
   - component: {fileID: 607742468}
+  - component: {fileID: 607742469}
   m_Layer: 5
   m_Name: Scrollbar (2)
   m_TagString: Untagged
@@ -11691,6 +11708,21 @@ MonoBehaviour:
   currentValue: 0
   maxLightIntensity: 9999
   targetLight: {fileID: 1389147587}
+--- !u!114 &607742469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607742463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52440312e0570714e92e743c1bf41ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightSliderController
+  brightnessSlider: {fileID: 607742465}
+  unityLight: {fileID: 1389147587}
+  vlbBeam: {fileID: 1389147589}
 --- !u!1001 &620619940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26176,6 +26208,7 @@ GameObject:
   - component: {fileID: 1454391296}
   - component: {fileID: 1454391295}
   - component: {fileID: 1454391294}
+  - component: {fileID: 1454391298}
   m_Layer: 5
   m_Name: Scrollbar (6)
   m_TagString: Untagged
@@ -26200,7 +26233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21.382}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -730, y: -680}
+  m_AnchoredPosition: {x: -558, y: -680}
   m_SizeDelta: {x: 20, y: 417.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1454391294
@@ -26319,6 +26352,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454391292}
   m_CullTransparentMesh: 1
+--- !u!114 &1454391298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454391292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52440312e0570714e92e743c1bf41ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightSliderController
+  brightnessSlider: {fileID: 1454391295}
+  unityLight: {fileID: 1680576490}
+  vlbBeam: {fileID: 1680576489}
 --- !u!1001 &1464739288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27797,6 +27845,7 @@ GameObject:
   - component: {fileID: 1527935898}
   - component: {fileID: 1527935897}
   - component: {fileID: 1527935900}
+  - component: {fileID: 1527935901}
   m_Layer: 5
   m_Name: Scrollbar (5)
   m_TagString: Untagged
@@ -27928,6 +27977,21 @@ MonoBehaviour:
   currentValue: 0
   maxLightIntensity: 9999
   targetLight: {fileID: 1023761004}
+--- !u!114 &1527935901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527935895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52440312e0570714e92e743c1bf41ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightSliderController
+  brightnessSlider: {fileID: 1527935897}
+  unityLight: {fileID: 1023761004}
+  vlbBeam: {fileID: 1023761003}
 --- !u!1 &1529538500
 GameObject:
   m_ObjectHideFlags: 0
@@ -34346,7 +34410,7 @@ MonoBehaviour:
   - {fileID: 623498223}
   - {fileID: 855127173}
   - {fileID: 2035702105}
-  baseIntensity: 5000
+  baseIntensity: 0
   strobeSpeed: 5
   moveSpeed: 3
   rangeX: 20
@@ -34491,6 +34555,7 @@ GameObject:
   - component: {fileID: 1846104426}
   - component: {fileID: 1846104425}
   - component: {fileID: 1846104428}
+  - component: {fileID: 1846104429}
   m_Layer: 5
   m_Name: Scrollbar (4)
   m_TagString: Untagged
@@ -34622,6 +34687,21 @@ MonoBehaviour:
   currentValue: 0
   maxLightIntensity: 9999
   targetLight: {fileID: 122797138}
+--- !u!114 &1846104429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846104423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52440312e0570714e92e743c1bf41ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightSliderController
+  brightnessSlider: {fileID: 1846104425}
+  unityLight: {fileID: 122797138}
+  vlbBeam: {fileID: 122797137}
 --- !u!1 &1857245893
 GameObject:
   m_ObjectHideFlags: 0
@@ -36019,6 +36099,7 @@ GameObject:
   - component: {fileID: 1935147052}
   - component: {fileID: 1935147051}
   - component: {fileID: 1935147054}
+  - component: {fileID: 1935147055}
   m_Layer: 5
   m_Name: Scrollbar (1)
   m_TagString: Untagged
@@ -36150,6 +36231,21 @@ MonoBehaviour:
   currentValue: 0
   maxLightIntensity: 9999
   targetLight: {fileID: 1407276153}
+--- !u!114 &1935147055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935147049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52440312e0570714e92e743c1bf41ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightSliderController
+  brightnessSlider: {fileID: 1935147051}
+  unityLight: {fileID: 1407276153}
+  vlbBeam: {fileID: 1407276155}
 --- !u!224 &1938953894 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4941219564456579801, guid: dc067c577ec1b854684d789b6e727cc0, type: 3}
