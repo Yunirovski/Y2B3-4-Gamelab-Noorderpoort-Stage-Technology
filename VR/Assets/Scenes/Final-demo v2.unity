@@ -3071,7 +3071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e20083a452acd4ba08bc48a406aacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameScoreManager
-  audioSource: {fileID: 141983149}
+  audioSource: {fileID: 1194903365}
   progressBar: {fileID: 892949867}
   progressBar1: {fileID: 0}
   scoreText: {fileID: 1544064557}
