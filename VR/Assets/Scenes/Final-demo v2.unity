@@ -14426,7 +14426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134976066859d2342bf8bc59da1ec127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  startTime: 240
+  startTime: 120
   timerText: {fileID: 472619577}
   escMenu: {fileID: 1843526174}
 --- !u!224 &734209601
@@ -22653,31 +22653,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c75ba277ec144448df3c971b4214c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioSpectrumVisualizer
-  audioSource: {fileID: 141983149}
+  audioSources:
+  - {fileID: 1194903365}
+  - {fileID: 1473791171}
+  - {fileID: 46117477}
   barPrefab: {fileID: 5359923525806376421, guid: 6442bcccd0901294d9d41523efefe0d9, type: 3}
-  barCount: 64
+  barCount: 28
   spacing: 0.6
   minHeight: 0.2
+  maxHeight: 10
   heightScale: 120
   smoothSpeed: 12
   sampleCount: 1024
   fftWindow: 5
   startSample: 2
-  bassBoost: 2
-  Boost: 50
+  bassBoost: 5.7
+  midBoost: 35
+  highBoost: 40
+  Boost: 24.6
   colorGradient:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0.69612426, b: 0, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key1: {r: 1, g: 0.80811393, b: 0, a: 1}
+    key2: {r: 0, g: 1, b: 0.16104317, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 65535
-    ctime2: 0
+    ctime1: 31804
+    ctime2: 65535
     ctime3: 0
     ctime4: 0
     ctime5: 0
@@ -22693,7 +22699,7 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 2
+    m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   useEmission: 1
   emissionStrength: 2
@@ -22710,9 +22716,9 @@ Transform:
   m_GameObject: {fileID: 1125705590}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.15, y: 5.8, z: 60.25}
-  m_LocalScale: {x: 0.8409, y: 0.8409, z: 0.8409}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -14.15, y: 5.8, z: 61.95}
+  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23306,7 +23312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1182915405}
-  - component: {fileID: 1182915404}
+  - component: {fileID: 1182915406}
   m_Layer: 0
   m_Name: Visualizer (1)
   m_TagString: Untagged
@@ -23314,66 +23320,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1182915404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182915403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2c75ba277ec144448df3c971b4214c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioSpectrumVisualizer
-  audioSource: {fileID: 141983149}
-  barPrefab: {fileID: 5359923525806376421, guid: 6442bcccd0901294d9d41523efefe0d9, type: 3}
-  barCount: 28
-  spacing: 0.6
-  minHeight: 0.2
-  heightScale: 40
-  smoothSpeed: 12
-  sampleCount: 1024
-  fftWindow: 5
-  startSample: 2
-  bassBoost: 2
-  Boost: 50
-  colorGradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0.69612426, b: 0, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  useEmission: 1
-  emissionStrength: 2
-  playPauseKey: 50
-  forwardKey: 51
-  backKey: 49
-  seekSeconds: 5
 --- !u!4 &1182915405
 Transform:
   m_ObjectHideFlags: 0
@@ -23389,6 +23335,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 26.21, y: 0, z: 0.34}
+--- !u!114 &1182915406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182915403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c75ba277ec144448df3c971b4214c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSpectrumVisualizer
+  audioSources:
+  - {fileID: 1194903365}
+  - {fileID: 1473791171}
+  - {fileID: 46117477}
+  barPrefab: {fileID: 5359923525806376421, guid: 6442bcccd0901294d9d41523efefe0d9, type: 3}
+  barCount: 28
+  spacing: 0.6
+  minHeight: 0.2
+  maxHeight: 10
+  heightScale: 120
+  smoothSpeed: 12
+  sampleCount: 1024
+  fftWindow: 5
+  startSample: 2
+  bassBoost: 5.7
+  midBoost: 35
+  highBoost: 40
+  Boost: 24.6
+  colorGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0.80811393, b: 0, a: 1}
+    key2: {r: 0, g: 1, b: 0.16104317, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 31804
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  useEmission: 1
+  emissionStrength: 2
+  playPauseKey: 50
+  forwardKey: 51
+  backKey: 49
+  seekSeconds: 5
 --- !u!1001 &1188379927
 PrefabInstance:
   m_ObjectHideFlags: 0

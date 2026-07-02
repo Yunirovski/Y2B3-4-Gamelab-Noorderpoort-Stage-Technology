@@ -3,13 +3,14 @@
 public class AudioSpectrumVisualizer : MonoBehaviour
 {
     [Header("Audio")]
-    public AudioSource audioSource;
+    public AudioSource[] audioSources;
 
     [Header("Bars")]
     public GameObject barPrefab;
     public int barCount = 64;
     public float spacing = 0.6f;
     public float minHeight = 0.2f;
+    public float maxHeight = 10f;
     public float heightScale = 120f;
     public float smoothSpeed = 12f;
 
@@ -17,8 +18,10 @@ public class AudioSpectrumVisualizer : MonoBehaviour
     public int sampleCount = 1024;
     public FFTWindow fftWindow = FFTWindow.BlackmanHarris;
     public int startSample = 2;
-    public float bassBoost = 2.0f;
-    public float Boost = 50.0f;
+    public float bassBoost = 2f;
+    public float midBoost = 2f;
+    public float highBoost = 2f;
+    public float Boost = 50f;
 
     [Header("Color")]
     public Gradient colorGradient;
@@ -32,14 +35,15 @@ public class AudioSpectrumVisualizer : MonoBehaviour
     public float seekSeconds = 5f;
 
     private float[] spectrum;
+    private float[] tempSpectrum;
     private Transform[] bars;
     private Material[] barMaterials;
 
     void Start()
     {
-        if (audioSource == null)
+        if (audioSources == null || audioSources.Length == 0)
         {
-            Debug.LogError("AudioSource is missing.");
+            Debug.LogError("AudioSources are missing.");
             enabled = false;
             return;
         }
@@ -54,6 +58,7 @@ public class AudioSpectrumVisualizer : MonoBehaviour
         if (sampleCount < 64) sampleCount = 64;
 
         spectrum = new float[sampleCount];
+        tempSpectrum = new float[sampleCount];
         bars = new Transform[barCount];
         barMaterials = new Material[barCount];
 
@@ -88,22 +93,38 @@ public class AudioSpectrumVisualizer : MonoBehaviour
     {
         if (Input.GetKeyDown(playPauseKey))
         {
-            if (audioSource.isPlaying)
-                audioSource.Pause();
-            else
-                audioSource.Play();
+            bool anyPlaying = false;
+
+            for (int i = 0; i < audioSources.Length; i++)
+            {
+                if (audioSources[i] != null && audioSources[i].isPlaying)
+                {
+                    anyPlaying = true;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < audioSources.Length; i++)
+            {
+                if (audioSources[i] == null) continue;
+
+                if (anyPlaying)
+                    audioSources[i].Pause();
+                else
+                    audioSources[i].Play();
+            }
         }
 
-        if (audioSource.clip == null) return;
-
-        if (Input.GetKeyDown(forwardKey))
+        for (int i = 0; i < audioSources.Length; i++)
         {
-            audioSource.time = Mathf.Clamp(audioSource.time + seekSeconds, 0f, audioSource.clip.length);
-        }
+            if (audioSources[i] != null && audioSources[i].clip != null)
+            {
+                if (Input.GetKeyDown(forwardKey))
+                    audioSources[i].time = Mathf.Clamp(audioSources[i].time + seekSeconds, 0f, audioSources[i].clip.length);
 
-        if (Input.GetKeyDown(backKey))
-        {
-            audioSource.time = Mathf.Clamp(audioSource.time - seekSeconds, 0f, audioSource.clip.length);
+                if (Input.GetKeyDown(backKey))
+                    audioSources[i].time = Mathf.Clamp(audioSources[i].time - seekSeconds, 0f, audioSources[i].clip.length);
+            }
         }
     }
 
@@ -113,11 +134,9 @@ public class AudioSpectrumVisualizer : MonoBehaviour
 
         for (int i = 0; i < barCount; i++)
         {
-            // 
             GameObject bar = Instantiate(barPrefab, transform);
             bar.name = "Bar_" + i;
 
-            // 
             Vector3 localPos = new Vector3(i * spacing - width * 0.5f, minHeight * 0.5f, 0f);
             bar.transform.localPosition = localPos;
             bar.transform.localRotation = Quaternion.identity;
@@ -143,9 +162,29 @@ public class AudioSpectrumVisualizer : MonoBehaviour
 
     void UpdateBars()
     {
-        if (audioSource == null) return;
+        if (audioSources == null || audioSources.Length == 0) return;
 
-        audioSource.GetSpectrumData(spectrum, 0, fftWindow);
+        for (int i = 0; i < spectrum.Length; i++)
+            spectrum[i] = 0f;
+
+        int activeSources = 0;
+
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            if (audioSources[i] == null || !audioSources[i].isPlaying) continue;
+
+            audioSources[i].GetSpectrumData(tempSpectrum, 0, fftWindow);
+
+            for (int j = 0; j < spectrum.Length; j++)
+                spectrum[j] += tempSpectrum[j];
+
+            activeSources++;
+        }
+
+        if (activeSources == 0) return;
+
+        for (int i = 0; i < spectrum.Length; i++)
+            spectrum[i] /= activeSources;
 
         int usableSamples = sampleCount - startSample;
         int bandSize = Mathf.Max(1, usableSamples / barCount);
@@ -157,20 +196,23 @@ public class AudioSpectrumVisualizer : MonoBehaviour
             int end = Mathf.Min(start + bandSize, sampleCount);
 
             for (int s = start; s < end; s++)
-            {
                 sum += spectrum[s];
-            }
 
             float value = sum / Mathf.Max(1, end - start);
 
             float t = i / (float)(barCount - 1);
-            float boost = Mathf.Lerp(1.0f, Boost, t);
+            float boost = Mathf.Lerp(1f, Boost, t);
             value *= boost;
 
-            if (i < barCount / 6)
+            if (t < 0.33f)
                 value *= bassBoost;
+            else if (t < 0.66f)
+                value *= midBoost;
+            else
+                value *= highBoost;
 
             float targetHeight = minHeight + value * heightScale;
+            targetHeight = Mathf.Clamp(targetHeight, minHeight, maxHeight);
 
             Vector3 scale = bars[i].localScale;
             scale.y = Mathf.Lerp(scale.y, targetHeight, Time.deltaTime * smoothSpeed);
@@ -183,7 +225,7 @@ public class AudioSpectrumVisualizer : MonoBehaviour
             if (barMaterials[i] != null && useEmission)
             {
                 Color baseColor = colorGradient.Evaluate(i / (float)(barCount - 1));
-                float glow = Mathf.Clamp(scale.y / 8f, 0.3f, 3f);
+                float glow = Mathf.Clamp(scale.y / maxHeight * 3f, 0.3f, 3f);
                 barMaterials[i].SetColor("_EmissionColor", baseColor * emissionStrength * glow);
             }
         }
