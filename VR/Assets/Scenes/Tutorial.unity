@@ -6451,7 +6451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -757}
+  m_AnchoredPosition: {x: 0, y: -972}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &267859325
@@ -33917,8 +33917,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 629.05}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 229, y: -687}
+  m_SizeDelta: {x: 1900, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1696654101
 MonoBehaviour:
@@ -33967,8 +33967,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -37198,6 +37198,7 @@ MonoBehaviour:
   nextButton: {fileID: 352581003}
   startButton: {fileID: 560809792}
   pageText: {fileID: 267859325}
+  descriptionText: {fileID: 1696654101}
   tutorialSprites:
   - {fileID: 21300000, guid: e8c80e4c8f8ba8242b8c06b8fae933f2, type: 3}
   - {fileID: 21300000, guid: 0381322462c4d8a499a7d1f952fa79e1, type: 3}
@@ -37208,6 +37209,56 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a45683320cf35c143a320d54b8400947, type: 3}
   - {fileID: 21300000, guid: 677a0b81e3432b94aaa715ad563d88f2, type: 3}
   - {fileID: 21300000, guid: e4afe8a6c6bba184db400c15cd46d47f, type: 3}
+  - {fileID: 21300000, guid: 1b13a18e4f17a7243a715411cc5c2a88, type: 3}
+  tutorialTexts:
+  - "Brightness\nUse these sliders to change each light\u2019s brightness.\n\nThe
+    button below can turn the light on or off."
+  - 'Light Modes
+
+    These buttons change the light effects.
+
+
+    One button switches
+    the light mode.'
+  - 'Light Direction
+
+    Use the arrow keys to move the light.
+
+
+    You can also
+    use W, A, S, and D.'
+  - "Mood Bar\nThis bar shows the crowd\u2019s mood.\n\nKeep it in the middle."
+  - 'Time and Score
+
+    This shows your game time and score.
+
+
+    You can get bonus
+    points at certain times.'
+  - 'Special Skill
+
+    This skill turns the light on auto mode.
+
+
+    The light
+    will move and follow the target.'
+  - 'Camera
+
+    Use this to switch the camera view.
+
+
+    Use reset to go back to
+    the default camera.'
+  - 'Screen
+
+    Use this screen to check the main view and the side view.'
+  - 'Music
+
+    This shows the music status.
+
+    This shows if your light control
+    is good or bad.'
+  - How to play?
 --- !u!114 &1843526182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42222,7 +42273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 196}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2078849961

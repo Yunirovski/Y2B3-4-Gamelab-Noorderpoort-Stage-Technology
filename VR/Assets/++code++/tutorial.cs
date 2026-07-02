@@ -10,7 +10,10 @@ public class TutorialUI : MonoBehaviour
     public Button nextButton;
     public Button startButton;
     public TextMeshProUGUI pageText;
+    public TextMeshProUGUI descriptionText;
     public Sprite[] tutorialSprites;
+    [TextArea(2, 6)]
+    public string[] tutorialTexts;
 
     int currentIndex = 0;
     bool finishedTutorial = false;
@@ -53,11 +56,29 @@ public class TutorialUI : MonoBehaviour
 
     void UpdateUI()
     {
-        stepImage.sprite = tutorialSprites[currentIndex];
-        pageText.text = (currentIndex + 1) + " / " + tutorialSprites.Length;
-        prevButton.interactable = currentIndex > 0;
+        if (tutorialSprites != null && currentIndex < tutorialSprites.Length)
+            stepImage.sprite = tutorialSprites[currentIndex];
+
+        if (pageText != null)
+            pageText.text = (currentIndex + 1) + " / " + tutorialSprites.Length;
+
+        if (descriptionText != null)
+        {
+            if (tutorialTexts != null && currentIndex < tutorialTexts.Length)
+                descriptionText.text = tutorialTexts[currentIndex];
+            else
+                descriptionText.text = "";
+        }
+
+        if (prevButton != null)
+            prevButton.interactable = currentIndex > 0;
+
         bool isLastPage = currentIndex == tutorialSprites.Length - 1;
-        nextButton.gameObject.SetActive(!isLastPage);
-        startButton.gameObject.SetActive(isLastPage);
+
+        if (nextButton != null)
+            nextButton.gameObject.SetActive(!isLastPage);
+
+        if (startButton != null)
+            startButton.gameObject.SetActive(isLastPage);
     }
 }
