@@ -12068,9 +12068,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1843526181}
-        m_TargetAssemblyTypeName: TutorialUI, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 1843526182}
+        m_TargetAssemblyTypeName: SceneNavigation, Assembly-CSharp
+        m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -37021,6 +37021,7 @@ GameObject:
   - component: {fileID: 1843526179}
   - component: {fileID: 1843526180}
   - component: {fileID: 1843526181}
+  - component: {fileID: 1843526182}
   m_Layer: 0
   m_Name: ===System===
   m_TagString: Untagged
@@ -37196,6 +37197,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a67970733ae260e488bc7bfe3dd29384, type: 3}
   - {fileID: 21300000, guid: 7e45b5b7749d93e4baa70a7908635dcc, type: 3}
   - {fileID: 21300000, guid: 88b24ddee5292354599632b695839591, type: 3}
+--- !u!114 &1843526182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843526173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3733b6a9b800045baa4c8f014dec5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneNavigation
 --- !u!1001 &1845332232
 PrefabInstance:
   m_ObjectHideFlags: 0
