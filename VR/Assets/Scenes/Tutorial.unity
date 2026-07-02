@@ -37211,8 +37211,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e4afe8a6c6bba184db400c15cd46d47f, type: 3}
   - {fileID: 21300000, guid: 1b13a18e4f17a7243a715411cc5c2a88, type: 3}
   tutorialTexts:
-  - "Brightness\nUse these sliders to change each light\u2019s brightness.\n\nThe
-    button below can turn the light on or off."
+  - "Brightness\nUse these sliders to change each light\u2019s brightness."
   - 'Light Modes
 
     These buttons change the light effects.
