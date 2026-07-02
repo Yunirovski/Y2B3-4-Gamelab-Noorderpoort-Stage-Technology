@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Skillsystem : MonoBehaviour
@@ -14,6 +15,8 @@ public class Skillsystem : MonoBehaviour
     public Light skillLight1;
     public Light skillLight2;
 
+    public Toggle strobeToggle;   
+
     private int currentSkillCount = 0;
     private int lastProcessedScore = 0;
     private bool skillActive = false;
@@ -21,11 +24,8 @@ public class Skillsystem : MonoBehaviour
 
     void Start()
     {
-        if (skillLight1 != null)
-            skillLight1.gameObject.SetActive(false);
-
-        if (skillLight2 != null)
-            skillLight2.gameObject.SetActive(false);
+        if (skillLight1 != null) skillLight1.gameObject.SetActive(false);
+        if (skillLight2 != null) skillLight2.gameObject.SetActive(false);
     }
 
     void Update()
@@ -47,7 +47,6 @@ public class Skillsystem : MonoBehaviour
         if (skillActive)
         {
             skillTimer -= Time.deltaTime;
-
             if (skillTimer <= 0f)
                 EndSkill();
         }
@@ -59,80 +58,57 @@ public class Skillsystem : MonoBehaviour
     public void UseHorizontalSkill()
     {
         if (currentSkillCount <= 0 || skillActive) return;
-
-        currentSkillCount--;
-        skillActive = true;
-        skillTimer = skillDuration;
-
-        if (skillLight1 != null)
-            skillLight1.gameObject.SetActive(true);
-
-        if (skillLight2 != null)
-            skillLight2.gameObject.SetActive(true);
-
+        StartSkill();
         if (stageLightController != null)
-        {
-            stageLightController.SetLightStrobe();
             stageLightController.SetMoveAutoHorizontal();
-        }
     }
 
     public void UseVerticalSkill()
     {
         if (currentSkillCount <= 0 || skillActive) return;
-
-        currentSkillCount--;
-        skillActive = true;
-        skillTimer = skillDuration;
-
-        if (skillLight1 != null)
-            skillLight1.gameObject.SetActive(true);
-
-        if (skillLight2 != null)
-            skillLight2.gameObject.SetActive(true);
-
+        StartSkill();
         if (stageLightController != null)
-        {
-            stageLightController.SetLightStrobe();
             stageLightController.SetMoveAutoVertical();
-        }
     }
 
     public void Use2DSkill()
     {
         if (currentSkillCount <= 0 || skillActive) return;
+        StartSkill();
+        if (stageLightController != null)
+            stageLightController.SetMoveAuto2D();
+    }
 
+    void StartSkill()
+    {
         currentSkillCount--;
         skillActive = true;
         skillTimer = skillDuration;
 
-        if (skillLight1 != null)
-            skillLight1.gameObject.SetActive(true);
-
-        if (skillLight2 != null)
-            skillLight2.gameObject.SetActive(true);
+        if (skillLight1 != null) skillLight1.gameObject.SetActive(true);
+        if (skillLight2 != null) skillLight2.gameObject.SetActive(true);
 
         if (stageLightController != null)
-        {
             stageLightController.SetLightStrobe();
-            stageLightController.SetMoveAuto2D();
-        }
+
+        if (strobeToggle != null)
+            strobeToggle.isOn = true;
     }
 
     void EndSkill()
     {
         skillActive = false;
 
-        if (skillLight1 != null)
-            skillLight1.gameObject.SetActive(false);
-
-        if (skillLight2 != null)
-            skillLight2.gameObject.SetActive(false);
+        if (skillLight1 != null) skillLight1.gameObject.SetActive(false);
+        if (skillLight2 != null) skillLight2.gameObject.SetActive(false);
 
         if (stageLightController != null)
         {
             stageLightController.SetLightNormal();
             stageLightController.SetMoveManual();
         }
+
+        if (strobeToggle != null)
+            strobeToggle.isOn = false;
     }
 }
