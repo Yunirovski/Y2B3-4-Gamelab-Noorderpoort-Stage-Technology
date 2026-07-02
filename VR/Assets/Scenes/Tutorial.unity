@@ -33519,7 +33519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1680576485
 Transform:
   m_ObjectHideFlags: 0
@@ -37161,6 +37161,7 @@ MonoBehaviour:
   skillDuration: 5
   skillLight1: {fileID: 1348221011}
   skillLight2: {fileID: 2005364251}
+  strobeToggle: {fileID: 0}
 --- !u!114 &1843526180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37180,6 +37181,8 @@ MonoBehaviour:
   - {fileID: 1846104425}
   - {fileID: 1527935897}
   speed: 3
+  playOnStart: 0
+  moveMode: 0
 --- !u!114 &1843526181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37201,7 +37204,7 @@ MonoBehaviour:
   descriptionText: {fileID: 1696654101}
   tutorialSprites:
   - {fileID: 21300000, guid: e8c80e4c8f8ba8242b8c06b8fae933f2, type: 3}
-  - {fileID: 21300000, guid: 0381322462c4d8a499a7d1f952fa79e1, type: 3}
+  - {fileID: 21300000, guid: 44a27247907aa734e9e1792c84742644, type: 3}
   - {fileID: 21300000, guid: ff8633e013e759d48a0daec834b84dee, type: 3}
   - {fileID: 21300000, guid: 89bfe7c84ec60094eab36d18e0e5f148, type: 3}
   - {fileID: 21300000, guid: 87e902325cdf75b43a32154199ced47b, type: 3}
